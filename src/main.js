@@ -1,29 +1,22 @@
-import { createApp, h } from "vue";
-import { createRouter, createWebHashHistory } from "vue-router";
-import { createApolloProvider } from "@vue/apollo-option";
-import apolloClient from "./vue-apollo";
-import App from "./App.vue";
-import Articles from "./containers/Articles";
+import { createApp } from 'vue';
+import App from './App.vue';
+import router from './router';
+import store from './store';
+import axios from 'axios';
+import 'normalize.css';
+import '@/assets/styles/global.scss'
 
-const apolloProvider = createApolloProvider({
-  defaultClient: apolloClient,
+// Create an Axios instance with your Strapi API base URL
+const strapiApi = axios.create({
+  baseURL: import.meta.env.VITE_APP_STRAPI_API_URL, // Replace with your Strapi API base URL
 });
 
-const routes = [{ path: "/", component: Articles }];
+const app = createApp(App);
 
-// 3. Create the router instance and pass the `routes` option
-// You can pass in additional options here, but let's
-// keep it simple for now.
-const router = createRouter({
-  // 4. Provide the history implementation to use. We are using the hash history for simplicity here.
-  history: createWebHashHistory(),
-  routes, // short for `routes: routes`
-});
-
-const app = createApp({
-  render: () => h(App),
-});
+// Use Axios instance as a Vue prototype
+app.config.globalProperties.$axios = strapiApi;
 
 app.use(router);
-app.use(apolloProvider);
-app.mount("#app");
+app.use(store);
+
+app.mount('#app');
