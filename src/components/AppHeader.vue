@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <nav class="br-8">
-      <span>Logo</span>
+      <span>Logor</span>
       <div class="nav-content">
         <router-link to="/" class="nav-link">{{ process.env.VUE_APP_STRAPI_API_URL }}</router-link>
         <!-- <a href="#">Portfolio</a> -->
