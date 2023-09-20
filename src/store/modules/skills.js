@@ -39,7 +39,7 @@ const getters = {
     );
   },
   getImageUrl: (state) => (part) => {
-    return import.meta.env.VITE_APP_STRAPI_API_URL + part;
+    return part;
   },
 };
 
