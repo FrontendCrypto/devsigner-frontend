@@ -9,7 +9,6 @@ const state = {
 const mutations = {
   SET_LOADING(state, loading) {
     state.loading = loading;
-    console.log('Articles Loading Setter');
   },
   SET_ARTICLES(state, articles) {
     state.articles = articles;
@@ -27,7 +26,6 @@ const actions = {
 
       commit('SET_ARTICLES', articles);
       commit('SET_LOADING', false);
-      console.log('Fetched Articles');
     } catch (error) {
       console.error('Error fetching articles:', error);
       commit('SET_LOADING', false);
