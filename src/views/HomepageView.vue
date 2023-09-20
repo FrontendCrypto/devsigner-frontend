@@ -206,7 +206,7 @@ export default {
   justify-content: space-between;
   flex-direction: column;
   a {
-    display: block;
+    display: inline-flex;
     margin-top: 24px;
   }
   &:hover {

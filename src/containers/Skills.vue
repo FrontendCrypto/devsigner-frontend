@@ -79,6 +79,7 @@ export default {
 
     @media(width >=1024px) {
       grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 1fr;
     }
   }
 
