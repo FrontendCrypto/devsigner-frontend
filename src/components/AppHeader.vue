@@ -3,7 +3,7 @@
     <nav class="br-8">
       <span>Logor</span>
       <div class="nav-content">
-        <router-link to="/" class="nav-link">{{ process.env.VUE_APP_STRAPI_API_URL }}</router-link>
+        <router-link to="/" class="nav-link">Home</router-link>
         <!-- <a href="#">Portfolio</a> -->
         <router-link to="/blog" tag="button" class="button button--primary button--medium">Cuaderno de
           bitácora</router-link>
