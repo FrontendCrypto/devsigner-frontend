@@ -75,6 +75,7 @@ export default {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(3, 1fr);
     overflow: hidden;
+    margin: 0 auto;
 
     @media(width >=1024px) {
       grid-template-columns: repeat(3, 1fr);

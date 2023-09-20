@@ -61,7 +61,9 @@
         <div class="section-header">
           <div class="section-title">Webs</div>
           <div class="section-subtitle">amigas</div>
-          <p>Sí, estos son enlaces de afiliado, hay que rascar de donde se pueda.</p>
+          <p>
+            Sí, estos son enlaces de afiliado, hay que rascar de donde se pueda.
+          </p>
         </div>
 
         <div class="websites cards-wrapper-3">
@@ -77,10 +79,10 @@
               </p>
               <p>Gana 5€ registrándote a través de este enlace:</p>
               <a
-                class="card-link"
+                class="button button--primary button--medium"
                 href="https://bit2me.com/es/join?ref=QWH-SLO-DIE&mkt_kind=referral&prm=5DH100"
                 target="_blank"
-                >https://bit2me.com</a
+                >Visita Bit2Me</a
               >
             </div>
           </div>
@@ -98,10 +100,10 @@
                 seguras y protegidas contra posibles amenazas en línea.
               </p>
               <a
-                class="card-link"
+                class="button button--primary button--medium"
                 href="https://shop.ledger.com/?r=2ca5d5f17b87"
                 target="_blank"
-                >https://ledger.com</a
+                >Visita Ledger</a
               >
             </div>
           </div>
@@ -120,10 +122,33 @@
                 desarrolladores de todo el mundo.
               </p>
               <a
-                class="card-link"
+                class="button button--primary button--medium"
                 href="https://railway.app?referralCode=EbPhlb"
                 target="_blank"
-                >https://railway.app?referralCode=EbPhlb</a
+                >Visita Railway</a
+              >
+            </div>
+          </div>
+          <div class="website card">
+            <h3>Railway</h3>
+            <div>
+              <p>
+                Cloudinary es una plataforma en la nube diseñada para
+                simplificar la gestión y optimización de activos multimedia en
+                línea. Ofrece características como almacenamiento de imágenes y
+                videos, procesamiento automático, entrega optimizada y
+                escalabilidad para mejorar la experiencia de usuario en sitios
+                web y aplicaciones.
+              </p>
+              <p>
+                Es conocido por su facilidad de integración y su capacidad para
+                acelerar la carga de medios en línea
+              </p>
+              <a
+                class="button button--primary button--medium"
+                href="https://console.cloudinary.com/invites/lpov9zyyucivvxsnalc5/qp8menzafkyppllcbsao?t=default"
+                target="_blank"
+                >Visita Cloudinary</a
               >
             </div>
           </div>
@@ -180,7 +205,10 @@ export default {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-
+  a {
+    display: block;
+    margin-top: 24px;
+  }
   &:hover {
     background-color: darken($surface2, 1%);
   }
