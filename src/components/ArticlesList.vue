@@ -47,7 +47,7 @@
 export default {
     data() {
         return {
-            api_url: process.env.VUE_APP_STRAPI_API_URL,
+            api_url: import.meta.env.VITE_APP_STRAPI_API_URL,
         }
     },
     props: {
