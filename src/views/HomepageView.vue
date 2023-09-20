@@ -36,11 +36,19 @@
           <h3>find me on github</h3>
           <p>@frontendcrypto</p>
         </div>
-        <a href="https://github.com/FrontendCrypto" target="_blank" class="button button--primary button--medium">
+        <a
+          href="https://github.com/FrontendCrypto"
+          target="_blank"
+          class="button button--primary button--medium"
+        >
           Llévame allí
         </a>
       </div>
-      <img class="banner__image position-absolute" src="@/assets/cat.png" alt="" />
+      <img
+        class="banner__image position-absolute"
+        src="@/assets/cat.png"
+        alt=""
+      />
     </div>
   </section>
 
@@ -58,21 +66,54 @@
         <div class="websites cards-wrapper-3">
           <div class="website card">
             <h3>Bit2me</h3>
-            <p>Bit2Me es una plataforma líder en criptomonedas que ofrece una amplia gama de servicios, desde comprar y
-              vender más de 230 criptomonedas hasta generar ingresos pasivos y soluciones avanzadas para inversores y
-              empresas, todo respaldado por altos estándares de seguridad y cumplimiento regulatorio.</p>
+            <p>
+              Bit2Me es una plataforma líder en criptomonedas que ofrece una
+              amplia gama de servicios, desde comprar y vender más de 230
+              criptomonedas hasta generar ingresos pasivos y soluciones
+              avanzadas para inversores y empresas, todo respaldado por altos
+              estándares de seguridad y cumplimiento regulatorio.
+            </p>
             <p>Gana 5€ registrándote a través de este enlace:</p>
-            <a class="card-link" href="https://bit2me.com/es/join?ref=QWH-SLO-DIE&mkt_kind=referral&prm=5DH100"
-              target="_blank">https://bit2me.com</a>
+            <a
+              class="card-link"
+              href="https://bit2me.com/es/join?ref=QWH-SLO-DIE&mkt_kind=referral&prm=5DH100"
+              target="_blank"
+              >https://bit2me.com</a
+            >
           </div>
           <div class="website card">
             <h3>Ledger</h3>
-            <p>Ledger es una reconocida marca de billeteras de hardware para criptomonedas. Estas billeteras almacenan las
-              claves privadas de los usuarios de forma segura en un dispositivo físico, lo que las hace altamente seguras
-              contra ataques cibernéticos.</p>
-            <p>Ledger es la elección confiable para mantener tus criptomonedas seguras y protegidas contra posibles
-              amenazas en línea.</p>
-            <a class="card-link" href="https://shop.ledger.com/?r=2ca5d5f17b87" target="_blank">https://ledger.com</a>
+            <p>
+              Ledger es una reconocida marca de billeteras de hardware para
+              criptomonedas. Estas billeteras almacenan las claves privadas de
+              los usuarios de forma segura en un dispositivo físico, lo que las
+              hace altamente seguras contra ataques cibernéticos.
+            </p>
+            <p>
+              Ledger es la elección confiable para mantener tus criptomonedas
+              seguras y protegidas contra posibles amenazas en línea.
+            </p>
+            <a
+              class="card-link"
+              href="https://shop.ledger.com/?r=2ca5d5f17b87"
+              target="_blank"
+              >https://ledger.com</a
+            >
+          </div>
+          <div class="website card">
+            <h3>Railway</h3>
+            <p>
+              Railway es una plataforma en la nube diseñada para simplificar el
+              proceso de envío de software. Ofrece funciones como compilaciones
+              automáticas, múltiples entornos y gestión de secretos para
+              agilizar el desarrollo y despliegue de aplicaciones.
+            </p>
+            <a
+              class="card-link"
+              href="https://shop.ledger.com/?r=2ca5d5f17b87"
+              target="_blank"
+              >https://ledger.com</a
+            >
           </div>
         </div>
       </div>
@@ -99,7 +140,9 @@ export default {
     return {
       homepage: null,
       loading: true,
-      apiUrl: `${import.meta.env.VITE_APP_STRAPI_API_URL}/api/homepage?populate=*`,
+      apiUrl: `${
+        import.meta.env.VITE_APP_STRAPI_API_URL
+      }/api/homepage?populate=*`,
     };
   },
 

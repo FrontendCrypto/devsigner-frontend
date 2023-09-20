@@ -4,10 +4,10 @@
       <div
         v-if="hasgalleryData"
         id="banner"
-        :data-src="this.baseUrl + gallery.attributes.image_thumbail.data.attributes.url"
+        :data-src="gallery.attributes.image_thumbail.data.attributes.url"
       >
         <img
-          :src="this.baseUrl + gallery.attributes.image_thumbail.data.attributes.url"
+          :src="gallery.attributes.image_thumbail.data.attributes.url"
         />
         <h1>{{ gallery.attributes.title }}</h1>
       </div>
