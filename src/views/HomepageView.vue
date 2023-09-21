@@ -71,11 +71,10 @@
             <h3>Bit2me</h3>
             <div>
               <p>
-                Bit2Me es una plataforma líder en criptomonedas que ofrece una
-                amplia gama de servicios, desde comprar y vender más de 230
-                criptomonedas hasta generar ingresos pasivos y soluciones
-                avanzadas para inversores y empresas, todo respaldado por altos
-                estándares de seguridad y cumplimiento regulatorio.
+                Plataforma líder en criptomonedas que ofrece una amplia gama de
+                servicios, como comprar y vender más de 230 criptomonedas,
+                respaldado por altos estándares de seguridad y cumplimiento
+                regulatorio.
               </p>
               <p>Gana 5€ registrándote a través de este enlace:</p>
               <a
@@ -90,14 +89,14 @@
             <h3>Ledger</h3>
             <div>
               <p>
-                Ledger es una reconocida marca de billeteras de hardware para
-                criptomonedas. Estas billeteras almacenan las claves privadas de
-                los usuarios de forma segura en un dispositivo físico, lo que
-                las hace altamente seguras contra ataques cibernéticos.
+                Reconocida marca de billeteras de hardware para criptomonedas.
+                Estas billeteras almacenan las claves privadas de los usuarios
+                de forma segura en un dispositivo físico, lo que las hace
+                altamente seguras contra ataques cibernéticos.
               </p>
               <p>
-                Ledger es la elección confiable para mantener tus criptomonedas
-                seguras y protegidas contra posibles amenazas en línea.
+                Es la elección confiable para mantener tus criptomonedas seguras
+                y protegidas.
               </p>
               <a
                 class="button button--primary button--medium"
@@ -111,11 +110,10 @@
             <h3>Railway</h3>
             <div>
               <p>
-                Railway es una plataforma en la nube diseñada para simplificar
-                el proceso de envío de software. Ofrece funciones como
-                compilaciones automáticas, múltiples entornos y gestión de
-                secretos para agilizar el desarrollo y despliegue de
-                aplicaciones.
+                Plataforma en la nube diseñada para simplificar el proceso de
+                entrega de software. Ofrece funciones como compilaciones
+                automáticas, múltiples entornos y gestión de secretos para
+                agilizar el desarrollo y despliegue de aplicaciones.
               </p>
               <p>
                 Railway es conocido por su facilidad de uso y es apreciado por
@@ -133,12 +131,11 @@
             <h3>Railway</h3>
             <div>
               <p>
-                Cloudinary es una plataforma en la nube diseñada para
-                simplificar la gestión y optimización de activos multimedia en
-                línea. Ofrece características como almacenamiento de imágenes y
-                videos, procesamiento automático, entrega optimizada y
-                escalabilidad para mejorar la experiencia de usuario en sitios
-                web y aplicaciones.
+                Plataforma en la nube para simplificar la gestión y optimización
+                de recursos multimedia. Ofrece características como
+                almacenamiento de imágenes, procesamiento automático,
+                entrega optimizada y escalabilidad para mejorar la experiencia
+                de usuario en sitios web y aplicaciones.
               </p>
               <p>
                 Es conocido por su facilidad de integración y su capacidad para
@@ -205,6 +202,9 @@ export default {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+  h3{
+    margin-bottom: 24px;
+  }
   a {
     display: inline-flex;
     margin-top: 24px;

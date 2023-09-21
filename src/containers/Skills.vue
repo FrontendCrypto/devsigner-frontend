@@ -4,42 +4,69 @@
       <div class="skills-column">
         <h3>Design</h3>
         <div class="skills-column__content">
-          <div class="skill-card" v-for="skill in filteredSkills('design')" :key="skill.id">
+          <div
+            class="skill-card"
+            v-for="skill in filteredSkills('design')"
+            :key="skill.id"
+          >
             <div class="skill-card__content">
               <b>{{ skill.attributes.title }}</b>
               <p>{{ skill.attributes.description }}</p>
             </div>
-            <img class="skill-card__image" :src="getImageUrl(skill.attributes.skill_logo.data.attributes.url)" />
+            <img
+              class="skill-card__image"
+              :src="
+                getImageUrl(skill.attributes.skill_logo.data.attributes.url)
+              "
+            />
           </div>
         </div>
       </div>
       <div class="skills-column">
         <span class="skills-title--icon material-symbols-outlined">repeat</span>
         <div class="skills-column__content">
-          <div class="skill-card" v-for="skill in filteredSkills('bridge')" :key="skill.id">
+          <div
+            class="skill-card"
+            v-for="skill in filteredSkills('bridge')"
+            :key="skill.id"
+          >
             <div class="skill-card__content">
               <b>{{ skill.attributes.title }}</b>
               <p>{{ skill.attributes.description }}</p>
             </div>
-            <img class="skill-card__image" :src="getImageUrl(skill.attributes.skill_logo.data.attributes.url)" />
+            <img
+              class="skill-card__image"
+              :src="
+                getImageUrl(skill.attributes.skill_logo.data.attributes.url)
+              "
+            />
           </div>
         </div>
       </div>
       <div class="skills-column">
         <h3>Develop</h3>
         <div class="skills-column__content">
-          <div class="skill-card" v-for="skill in filteredSkills('develop')" :key="skill.id">
+          <div
+            class="skill-card"
+            v-for="skill in filteredSkills('develop')"
+            :key="skill.id"
+          >
             <div class="skill-card__content">
               <b>{{ skill.attributes.title }}</b>
               <p>{{ skill.attributes.description }}</p>
             </div>
-            <img class="skill-card__image" :src="getImageUrl(skill.attributes.skill_logo.data.attributes.url)" />
+            <img
+              class="skill-card__image"
+              :src="
+                getImageUrl(skill.attributes.skill_logo.data.attributes.url)
+              "
+            />
           </div>
         </div>
       </div>
     </div>
   </section>
-</template> 
+</template>
 
 <script>
 import { mapState, mapGetters, mapActions } from 'vuex';
@@ -77,7 +104,7 @@ export default {
     overflow: hidden;
     margin: 0 auto;
 
-    @media(width >=1024px) {
+    @media (width >=1024px) {
       grid-template-columns: repeat(3, 1fr);
       grid-template-rows: 1fr;
     }

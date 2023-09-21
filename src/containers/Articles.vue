@@ -1,38 +1,39 @@
 <template>
-  <div>
-    <div class="articles-content">
-      <div v-if="loading">Loading...</div>
-      <div class="articles cards-wrapper-3" v-else>
-        <div class="article card" v-for="article in articles" :key="article.id">
-          <div class="article-content">
-            <h3 class="article-title">{{ article.attributes.title }}</h3>
-            <p>
-              {{ getTruncateDescription(article.attributes.description) }}
-            </p>
-          </div>
-          <!-- <img
+  <div class="articles-content">
+    <div v-if="loading">Loading...</div>
+    <div class="articles cards-wrapper-3" v-else>
+      <div class="article card" v-for="article in articles" :key="article.id">
+        <div class="article-content">
+          <h3 class="article-title">{{ article.attributes.title }}</h3>
+          <p>
+            {{ getTruncateDescription(article.attributes.description) }}
+          </p>
+        </div>
+        <!-- <img
             :src="article.attributes.image.data.attributes.url"
             alt="Article Image"
           /> -->
-          <div class="article-meta">
-            <div class="meta-item">
-              <span class="meta-title">Fecha y autor</span>
-              <span class="meta-content">{{
-                this.getFormattedDate(article.attributes.publishedAt)
-              }}</span>
-            </div>
-
-            <div class="meta-item">
-              <span class="meta-title">Categorías</span>
-              <!-- @todo implement get multiple categories -->
-              <span class="meta-content">{{
-                article.attributes.category.data.attributes.name
-              }}</span>
-            </div>
-            <router-link :to="{ name: 'article', params: { id: article.id } }" class="card-link">
-              Leer más
-            </router-link>
+        <div class="article-meta">
+          <div class="meta-item">
+            <span class="meta-title">Fecha y autor</span>
+            <span class="meta-content">{{
+              this.getFormattedDate(article.attributes.publishedAt)
+            }}</span>
           </div>
+
+          <div class="meta-item">
+            <span class="meta-title">Categorías</span>
+            <!-- @todo implement get multiple categories -->
+            <span class="meta-content">{{
+              article.attributes.category.data.attributes.name
+            }}</span>
+          </div>
+          <router-link
+            :to="{ name: 'article', params: { id: article.id } }"
+            class="card-link"
+          >
+            Leer más
+          </router-link>
         </div>
       </div>
     </div>
@@ -55,7 +56,6 @@ export default {
     ...mapActions('articles', ['fetchArticles']),
   },
 };
-
 </script>
 
 <style scoped lang="scss">
@@ -65,6 +65,7 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: 100%;
 }
 
 .article-content {
