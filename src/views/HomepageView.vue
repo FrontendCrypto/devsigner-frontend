@@ -4,9 +4,22 @@
       <img alt="Vue logo" src="@/assets/header-logo.svg" />
       <div v-if="loading">Loading@.</div>
       <div v-else>
-        <p class="text-body">{{ homepage.hero.title }}</p>
+        <p class="text-body">{{ homepage.attributes.hero.title }}</p>
       </div>
     </div>
+    <!-- @todo store getImageUrl -->
+    <!-- <div>
+      <img
+        alt="Vue logo"
+        :src="getImageUrl(homepage.attributes.imageleft.data.attributes.url)"
+      />
+    </div>
+    <div>
+      <img
+        alt="Vue logo"
+        :src="getImageUrl(homepage.attributes.imageleft.data.attributes.url)"
+      />
+    </div> -->
     <div>
       <img alt="Vue logo" src="@/assets/left.png" />
     </div>
@@ -22,7 +35,6 @@
           <div class="section-subtitle">bitacora*</div>
           <p>*Esta tipografía no incorpora tildes : (</p>
         </div>
-
         <Articles />
       </div>
     </div>
@@ -133,9 +145,9 @@
               <p>
                 Plataforma en la nube para simplificar la gestión y optimización
                 de recursos multimedia. Ofrece características como
-                almacenamiento de imágenes, procesamiento automático,
-                entrega optimizada y escalabilidad para mejorar la experiencia
-                de usuario en sitios web y aplicaciones.
+                almacenamiento de imágenes, procesamiento automático, entrega
+                optimizada y escalabilidad para mejorar la experiencia de
+                usuario en sitios web y aplicaciones.
               </p>
               <p>
                 Es conocido por su facilidad de integración y su capacidad para
@@ -156,7 +168,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+import { mapState, mapGetters, mapActions } from 'vuex';
 import Articles from '@/containers/Articles.vue';
 import Skills from '@/containers/Skills.vue';
 import Gallery from '@/containers/Gallery.vue';
@@ -170,27 +182,15 @@ export default {
     Gallery,
     Features,
   },
-  data() {
-    return {
-      homepage: null,
-      loading: true,
-      apiUrl: `${
-        import.meta.env.VITE_APP_STRAPI_API_URL
-      }/api/homepage?populate=*`,
-    };
+  computed: {
+    ...mapState('homepage', ['homepage', 'loading']),
+    ...mapGetters('homepage', ['getImageUrl']),
   },
-
+  methods: {
+    ...mapActions('homepage', ['fetchHomepage']),
+  },
   mounted() {
-    axios
-      .get(this.apiUrl)
-      .then((response) => {
-        this.homepage = response.data.data.attributes;
-        this.loading = false;
-      })
-      .catch((error) => {
-        console.error('Error fetching data:', error);
-        this.loading = false;
-      });
+    this.fetchHomepage();
   },
 };
 </script>
@@ -202,7 +202,7 @@ export default {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  h3{
+  h3 {
     margin-bottom: 24px;
   }
   a {

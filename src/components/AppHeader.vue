@@ -1,12 +1,16 @@
 <template>
   <div class="container">
     <nav class="br-8">
-      <span>Logor</span>
+      <router-link to="/" class="header-title">devsigner.xyz</router-link>
       <div class="nav-content">
         <router-link to="/" class="nav-link">Home</router-link>
         <!-- <a href="#">Portfolio</a> -->
-        <router-link to="/blog" tag="button" class="button button--primary button--medium">Cuaderno de
-          bitácora</router-link>
+        <router-link
+          to="/blog"
+          tag="button"
+          class="button button--primary button--medium"
+          >Cuaderno de bitácora</router-link
+        >
       </div>
     </nav>
   </div>
@@ -24,8 +28,20 @@ export default {
 .nav-link {
   text-decoration: none;
   color: $contentOnSurface;
+  text-decoration: none;
 }
-
+.header-title {
+  font-family: 'Koulen', sans-serif;
+  line-height: 1;
+  font-size: 30px;
+  color: $contentOnSurface;
+  opacity: 0.75;
+  transition: 0.2s ease;
+  text-decoration: none;
+  &:hover {
+    opacity: 1;
+  }
+}
 .app-header {
   background-color: $surface1;
   padding: 24px;
@@ -57,9 +73,11 @@ nav {
     flex-direction: row;
   }
 
-  @media (width > 1024px) {}
+  @media (width > 1024px) {
+  }
 
-  @media (width > 1200px) {}
+  @media (width > 1200px) {
+  }
 }
 
 .nav-content {

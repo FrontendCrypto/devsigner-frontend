@@ -2,40 +2,34 @@
   <div class="articles-content">
     <div v-if="loading">Loading...</div>
     <div class="articles cards-wrapper-3" v-else>
-      <div class="article card" v-for="article in articles" :key="article.id">
+      <router-link
+        :to="{ name: 'article', params: { id: article.id } }"
+        class="article card"
+        v-for="article in articles"
+        :key="article.id"
+      >
         <div class="article-content">
+          <span class="article-date">
+            {{ this.getFormattedDate(article.attributes.publishedAt) }}
+          </span>
           <h3 class="article-title">{{ article.attributes.title }}</h3>
           <p>
             {{ getTruncateDescription(article.attributes.description) }}
           </p>
         </div>
-        <!-- <img
-            :src="article.attributes.image.data.attributes.url"
-            alt="Article Image"
-          /> -->
-        <div class="article-meta">
-          <div class="meta-item">
-            <span class="meta-title">Fecha y autor</span>
-            <span class="meta-content">{{
-              this.getFormattedDate(article.attributes.publishedAt)
-            }}</span>
-          </div>
 
-          <div class="meta-item">
-            <span class="meta-title">Categorías</span>
-            <!-- @todo implement get multiple categories -->
-            <span class="meta-content">{{
-              article.attributes.category.data.attributes.name
-            }}</span>
+        <div>
+          <div class="article-categories">
+            <span
+              class="article-category"
+              v-if="article.attributes.categories.data.length"
+              v-for="category in article.attributes.categories.data"
+              >{{ category.attributes.name }}</span
+            >
+            <span v-else class="article-category">Sin categoría</span>
           </div>
-          <router-link
-            :to="{ name: 'article', params: { id: article.id } }"
-            class="card-link"
-          >
-            Leer más
-          </router-link>
         </div>
-      </div>
+      </router-link>
     </div>
   </div>
 </template>
@@ -60,7 +54,25 @@ export default {
 
 <style scoped lang="scss">
 @import '@/assets/styles/variables.scss';
-
+.article-date {
+  font-size: 12px;
+  color: $neutral;
+  margin-bottom: 8px;
+}
+.article-categories {
+  display: flex;
+  gap: 8px;
+}
+.article-category {
+  font-size: 12px;
+  padding: 4px 8px;
+  height: 24px;
+  border-radius: 12px;
+  background-color: $surface3;
+  display: inline-flex;
+  align-items: center;
+  color: $contentOnSurface;
+}
 .articles-content {
   display: flex;
   flex-direction: column;
@@ -73,31 +85,7 @@ export default {
   flex-direction: column;
   gap: 8px;
   height: 100%;
-}
-
-.article-meta {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.meta-item {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.meta-title,
-.meta-content {
-  font-size: 12px;
-}
-
-.meta-title {
-  font-weight: 600;
-}
-
-.meta-content {
-  font-weight: 400;
+  color: $contentOnSurface;
 }
 
 .article-title {
@@ -107,6 +95,11 @@ export default {
 }
 
 .article {
+  display: flex;
+  gap: 24px;
+  flex-direction: column;
+  justify-content: space-between;
+  text-decoration: none;
   &:hover {
     background-color: darken($surface2, 1%);
   }
