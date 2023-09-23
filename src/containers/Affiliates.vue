@@ -9,14 +9,14 @@
             Sí, estos son enlaces de afiliado, hay que rascar de donde se pueda.
           </p>
         </div>
-        <div class="websites cards-wrapper-3">
-          <div v-for="affiliate in affiliates" class="website card">
+        <div class="websites cards-wrapper-2">
+          <div v-for="affiliate in affiliates" class="website card" :key="affiliate.id">
             <h3>{{ affiliate.attributes.title }}</h3>
             <div>
-              {{ affiliate.attributes.description }}
-              <!-- <a class="button button--primary button--medium" :href="affiliate.attributes.url" target="_blank">
-                {{ affiliates.attributes.button }}
-              </a> -->
+              <p>{{ affiliate.attributes.description }}</p>
+              <a class="button button--primary button--medium" :href="affiliate.attributes.url" target="_blank">
+                {{ affiliate.attributes.button }}
+              </a>
             </div>
           </div>
         </div>
@@ -43,6 +43,10 @@ export default {
 
 <style scoped lang="scss">
 @import '@/assets/styles/variables.scss';
+
+.button {
+  display: inline-flex !important;
+}
 
 .website {
   display: flex;

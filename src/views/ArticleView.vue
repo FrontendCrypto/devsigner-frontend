@@ -39,7 +39,6 @@ export default {
     },
   },
   mounted() {
-    
     const articleId = this.$route.params.id;
     const apiUrl = `${this.baseUrl}/api/articles/${articleId}?populate=*`;
 
