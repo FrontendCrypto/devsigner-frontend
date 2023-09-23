@@ -8836,13 +8836,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"swiper@npm:^10.3.0":
-  version: 10.3.0
-  resolution: "swiper@npm:10.3.0"
-  checksum: 7b89adc440de725c35d613933808fd4321da041769b57d2bb17bb9f0bb05ef6927b8d8251888df87b83326ce149d0dfcd3f9f2f15261dfd59d5f07d2d7828868
-  languageName: node
-  linkType: hard
-
 "table@npm:^6.0.9":
   version: 6.8.1
   resolution: "table@npm:6.8.1"
@@ -9218,7 +9211,6 @@ __metadata:
     sass: ^1.67.0
     sass-loader: ^12.6.0
     strapi-plugin-populate-deep: ^3.0.0
-    swiper: ^10.3.0
     vite: ^4.4.9
     vue: ^3.3.4
     vue-router: ^4.2.4

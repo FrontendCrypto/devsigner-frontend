@@ -20,7 +20,6 @@
     "react": "^18.2.0",
     "reset-css": "^5.0.2",
     "strapi-plugin-populate-deep": "^3.0.0",
-    "swiper": "^10.3.0",
     "vue": "^3.3.4",
     "vue-router": "^4.2.4",
     "vuex": "^4.1.0"
