@@ -21,11 +21,12 @@ const actions = {
         import.meta.env.VITE_APP_STRAPI_API_URL + '/api/homepage?populate=*'
       );
       const homepage = response.data.data;
+
       commit('SET_HOMEPAGE', homepage);
       commit('SET_LOADING', false);
     } catch (error) {
       console.error('Error fetching homepage:', error);
-      commit('SET_LOADING', false);
+      commit('SET_LOADING', true);
     }
   },
 };

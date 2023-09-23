@@ -4,21 +4,15 @@
       <img alt="Vue logo" src="@/assets/header-logo.svg" />
       <div v-if="loading">Loading@.</div>
       <div v-else>
-        <p class="text-body">{{ homepage.attributes.hero.title }}</p>
+        <p v-if="homepage && homepage.attributes" class="text-body">{{ homepage.attributes.hero.title }}</p>
       </div>
     </div>
     <!-- @todo store getImageUrl -->
     <!-- <div>
-      <img
-        alt="Vue logo"
-        :src="getImageUrl(homepage.attributes.imageleft.data.attributes.url)"
-      />
+      <img alt="Vue logo" :src="getImageUrl(homepage.attributes.imageleft.data.attributes.url)" />
     </div>
     <div>
-      <img
-        alt="Vue logo"
-        :src="getImageUrl(homepage.attributes.imageleft.data.attributes.url)"
-      />
+      <img alt="Vue logo" :src="getImageUrl(homepage.attributes.imageleft.data.attributes.url)" />
     </div> -->
     <div>
       <img alt="Vue logo" src="@/assets/left.png" />
@@ -30,10 +24,10 @@
   <section class="section section-articles">
     <div class="container">
       <div class="content">
-        <div class="section-header">
-          <div class="section-title">Cuaderno de</div>
-          <div class="section-subtitle">bitacora*</div>
-          <p>*Esta tipografía no incorpora tildes : (</p>
+        <div v-if="homepage && homepage.attributes" class="section-header">
+          <div class="section-title">{{ homepage.attributes.blog.title1 }}</div>
+          <div class="section-subtitle">{{ homepage.attributes.blog.title2 }}</div>
+          <p>{{ homepage.attributes.blog.subtitle }}</p>
         </div>
         <Articles list-type="grid" />
       </div>
@@ -49,7 +43,7 @@
           <p>@frontendcrypto</p>
         </div>
         <a href="https://github.com/FrontendCrypto" target="_blank" class="button button--primary button--medium">
-          Llévame allí
+          Echa un vistazo
         </a>
       </div>
       <img class="banner__image position-absolute" src="@/assets/cat.png" alt="" />
@@ -59,7 +53,7 @@
   <Skills />
   <Gallery />
 
-  <Affiliates/>
+  <Affiliates />
 </template>
 
 <script>
@@ -86,9 +80,9 @@ export default {
   methods: {
     ...mapActions('homepage', ['fetchHomepage']),
   },
-  mounted() {
+  async mounted() {
+    await this.fetchHomepage();
     this.$gtm.trackView(`Inicio`, 'currentPath');
-    this.fetchHomepage();
   },
 };
 </script>
