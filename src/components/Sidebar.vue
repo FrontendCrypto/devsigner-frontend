@@ -6,10 +6,12 @@
       <div v-else class="sidebar-articles">
         <div v-for="article in sidebarArticles.slice(0, 5)" :key="article.id" class="sidebar-article">
           <router-link class="article-link" :to="{ name: 'article', params: { id: article.id } }">
-            <span>{{ article.attributes.title }}</span>
-            <small v-if="article.attributes.category.data.attributes.name">
-              {{ article.attributes.category.data.attributes.name }}
-            </small>
+            <span class="article-title">{{ article.attributes.title }}</span>
+            <div class="article-categories">
+              <span class="article-category" v-if="article.attributes.categories.data.length"
+                v-for="category in article.attributes.categories.data">{{ category.attributes.name }}</span>
+              <span v-else class="article-category">Sin categoría</span>
+            </div>
           </router-link>
         </div>
       </div>
@@ -37,6 +39,22 @@ export default {
 <style scoped lang="scss">
 @import '@/assets/styles/variables.scss';
 
+.article-categories {
+  display: flex;
+  gap: 8px;
+}
+
+.article-category {
+  font-size: 12px;
+  padding: 4px 8px;
+  height: 24px;
+  border-radius: 12px;
+  background-color: $surface3;
+  display: inline-flex;
+  align-items: center;
+  color: $contentOnSurface;
+}
+
 .article-link {
   position: relative;
   background-color: $surface2;
@@ -55,6 +73,11 @@ export default {
     background-color: $surface3;
     color: $tertiary;
   }
+}
+
+.sidebar {
+  display: flex;
+  height: 100%;
 }
 
 .sidebar-content {
@@ -84,7 +107,7 @@ export default {
       font-weight: 600;
     }
 
-    span {
+    .article-title {
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;

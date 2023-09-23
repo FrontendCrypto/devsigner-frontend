@@ -7,37 +7,36 @@
 *::after {
   box-sizing: border-box;
 }
+.card {
+  border-radius: 8px;
+  background-color: $surface2;
+  display: flex;
+  padding: 24px 16px;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+  align-self: stretch;
+  position: relative;
+  transition: 0.2s ease;
 
+  .card-link {
+    &::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+      content: '';
+    }
+  }
+}
 .cards-wrapper-3 {
   display: grid;
   grid-template-columns: 1fr;
   gap: 16px;
   width: 100%;
-
-  .card {
-    border-radius: 8px;
-    background-color: $surface2;
-    display: flex;
-    padding: 24px 16px;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 8px;
-    align-self: stretch;
-    position: relative;
-
-    .card-link {
-      &::after {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        z-index: 1;
-        content: '';
-      }
-    }
-  }
 
   @media (width >=768px) {
     grid-template-columns: repeat(2, 1fr);
@@ -45,6 +44,10 @@
 
   @media (width >=1024px) {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  &.cards-wrapper-3.list {
+    grid-template-columns: 1fr !important;
   }
 }
 

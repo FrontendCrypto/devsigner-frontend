@@ -35,7 +35,7 @@
           <div class="section-subtitle">bitacora*</div>
           <p>*Esta tipografía no incorpora tildes : (</p>
         </div>
-        <Articles />
+        <Articles list-type="grid" />
       </div>
     </div>
   </section>

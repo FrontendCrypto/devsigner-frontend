@@ -3,8 +3,6 @@
     <nav class="br-8">
       <router-link to="/" class="header-title">devsigner.xyz</router-link>
       <div class="nav-content">
-        <router-link to="/" class="nav-link">Home</router-link>
-        <!-- <a href="#">Portfolio</a> -->
         <router-link
           to="/blog"
           tag="button"

@@ -41,27 +41,12 @@
                 </div>
               </div>
               <div class="gallery-items" v-else>
-                <div
-                  class="gallery-item"
-                  v-for="item in gallery"
-                  :key="item.id"
-                >
-                  <img
-                    class="gallery-image"
-                    :alt="item.attributes.prompt"
-                    :title="item.attributes.title"
-                    :src="
-                      getImageUrl(
-                        item.attributes.image_thumbail.data.attributes.url
-                      )
-                    "
-                  />
+                <div class="gallery-item" v-for="item in gallery" :key="item.id">
+                  <img class="gallery-image" :alt="item.attributes.prompt" :title="item.attributes.title"
+                    :src="`${!isProduction ? baseUrl : ''}${item.attributes.image_thumbail.data.attributes.url}`" />
                   <div class="gallery-item-overlay">
                     <h3>{{ item.attributes.title }}</h3>
-                    <router-link
-                      class="gallery-item-link"
-                      :to="{ name: 'gallery', params: { id: item.id } }"
-                    />
+                    <router-link class="gallery-item-link" :to="{ name: 'gallery', params: { id: item.id } }" />
                   </div>
                 </div>
               </div>
@@ -78,14 +63,19 @@ import { mapState, mapActions } from 'vuex';
 
 export default {
   name: 'Gallery',
+  data(){
+    return{
+      baseUrl: import.meta.env.VITE_APP_STRAPI_API_URL
+    }
+  },
   computed: {
     ...mapState('gallery', ['loading', 'gallery']),
   },
   methods: {
     ...mapActions('gallery', ['fetchGallery']),
-    getImageUrl(part) {
-      return part;
-    },
+    // getImageUrl(part) {
+    //   return part;
+    // },
   },
   mounted() {
     this.fetchGallery();

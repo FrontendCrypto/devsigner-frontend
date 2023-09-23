@@ -21,7 +21,6 @@ const actions = {
         import.meta.env.VITE_APP_STRAPI_API_URL + '/api/homepage?populate=*'
       );
       const homepage = response.data.data;
-      console.log(homepage.attributes.imageleft.data.attributes.url)
       commit('SET_HOMEPAGE', homepage);
       commit('SET_LOADING', false);
     } catch (error) {
