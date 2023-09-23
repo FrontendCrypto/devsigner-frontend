@@ -1,14 +1,8 @@
 <template>
   <div>
     <div class="container">
-      <div
-        v-if="hasgalleryData"
-        id="banner"
-        :data-src="gallery.attributes.image_thumbail.data.attributes.url"
-      >
-        <img
-          :src="gallery.attributes.image_thumbail.data.attributes.url"
-        />
+      <div v-if="hasgalleryData" id="banner" :data-src="gallery.attributes.image_thumbail.data.attributes.url">
+        <img :src="imageUrl" />
         <h1>{{ gallery.attributes.title }}</h1>
       </div>
 
@@ -44,6 +38,11 @@ export default {
         this.gallery && this.gallery.attributes && this.gallery.attributes.title
       );
     },
+    imageUrl() {
+      const apiUrl = import.meta.env.VITE_APP_STRAPI_API_URL;
+      const host = import.meta.env.MODE = 'development' ? apiUrl : ''
+      const url = host + this.gallery.attributes.image_thumbail.data.attributes.url
+    }
   },
   mounted() {
     const galleryId = this.$route.params.id;
@@ -53,6 +52,7 @@ export default {
       .get(apiUrl)
       .then((response) => {
         this.gallery = response.data.data;
+        this.$gtm.trackView(`Galería - ${this.gallery.attributes.title}`, 'currentPath');
       })
       .catch((error) => {
         console.error('Error fetching gallery data:', error);

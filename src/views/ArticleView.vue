@@ -39,6 +39,7 @@ export default {
     },
   },
   mounted() {
+    
     const articleId = this.$route.params.id;
     const apiUrl = `${this.baseUrl}/api/articles/${articleId}?populate=*`;
 
@@ -46,6 +47,7 @@ export default {
       .get(apiUrl)
       .then((response) => {
         this.article = response.data.data;
+        this.$gtm.trackView(`Artículo - ${this.article.attributes.title}`, 'currentPath');
         this.parsedContent = this.md.render(this.article.attributes.content);
       })
       .catch((error) => {
@@ -64,7 +66,7 @@ export default {
   padding: 0;
 }
 
-article{
+article {
   height: 100%;
 }
 

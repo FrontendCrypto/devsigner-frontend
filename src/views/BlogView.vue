@@ -17,6 +17,9 @@ import Articles from '@/containers/Articles.vue';
 import Sidebar from '@/components/Sidebar.vue';
 export default {
   name: 'BlogView',
+  mounted() {
+    this.$gtm.trackView('Blog', 'currentPath');
+  },
   components: {
     Articles,
     Sidebar,
