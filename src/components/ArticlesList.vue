@@ -53,9 +53,6 @@ export default {
     props: {
         articles: Object,
     },
-    async mounted(){
-        console.log(this.articles)
-    },
     computed: {
         leftArticlesCount() {
             return Math.ceil(this.articles.data.length / 5);
