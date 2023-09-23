@@ -14,9 +14,9 @@
             <h3>{{ affiliate.attributes.title }}</h3>
             <div>
               {{ affiliate.attributes.description }}
-              <a class="button button--primary button--medium" :href="affiliate.attributes.url" target="_blank">
+              <!-- <a class="button button--primary button--medium" :href="affiliate.attributes.url" target="_blank">
                 {{ affiliates.attributes.button }}
-              </a>
+              </a> -->
             </div>
           </div>
         </div>
@@ -37,7 +37,6 @@ export default {
   },
   async mounted() {
     await this.fetchAffiliates();
-    console.log('afiliados', this.affiliates)
   },
 };
 </script>

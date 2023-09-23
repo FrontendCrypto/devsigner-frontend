@@ -37,7 +37,7 @@
           <div class="features">
             <div v-for="(feature, index) in this.filteredDesignFeatures" :key="index"
               :class="['feature', feature.expanded ? 'active' : '']"
-              @click="TOGGLE_DESCRIPTION(index, this.filteredDesignFeatures)">
+              @click="TOGGLE_DESCRIPTION(index, this.filteredDesignFeatures, feature.attributes.title), onClick(feature.attributes.title)">
               <div class="feature-content">
                 <h4 class="feature-title">{{ feature.attributes.title }}</h4>
                 <div class="expander-button">
@@ -140,7 +140,17 @@ export default {
   },
   methods: {
     ...mapActions('features', ['fetchFeatures']),
-    ...mapMutations('features', ['TOGGLE_DESCRIPTION'])
+    ...mapMutations('features', ['TOGGLE_DESCRIPTION']),
+    onClick(eventValue){
+      this.$gtm.trackEvent({
+        event: 'interaction',
+        category: 'Features',
+        action: 'click',
+        label: 'CLick en feature',
+        value: eventValue,
+        noninteraction: false, // Optional
+      });
+    }
   },
   mounted() {
     this.fetchFeatures();

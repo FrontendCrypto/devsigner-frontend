@@ -87,6 +87,7 @@ export default {
     ...mapActions('homepage', ['fetchHomepage']),
   },
   mounted() {
+    this.$gtm.trackView(`Inicio`, 'currentPath');
     this.fetchHomepage();
   },
 };

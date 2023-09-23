@@ -3,8 +3,8 @@
 
     <div v-if="loading">Loading...</div>
     <div v-else :class="['cards-wrapper-3', this.listClass]">
-      <router-link :to="{ name: 'article', params: { id: article.id } }" class="article card"
-        v-for="article in articles.slice(0, 5)" :key="article.id">
+      <router-link @click="onClick(article.attributes.title)" :to="{ name: 'article', params: { id: article.id } }"
+        class="article card" v-for="article in articles.slice(0, 5)" :key="article.id">
         <div class="article-content">
           <span class="article-date">
             {{ this.getFormattedDate(article.attributes.publishedAt) }}
@@ -47,7 +47,6 @@ export default {
     if (this.listType === 'list') {
       this.showArticleButton = false;
       this.listClass = 'list'
-      console.log(this.type)
     } else {
       this.showArticleButton = true;
       this.listClass = ''
@@ -63,6 +62,16 @@ export default {
   },
   methods: {
     ...mapActions('articles', ['fetchArticles']),
+    onClick(eventValue) {
+      this.$gtm.trackEvent({
+        event: 'interaction',
+        category: 'Artículo',
+        action: 'click',
+        label: 'CLick en artículo',
+        value: eventValue,
+        noninteraction: false, // Optional
+      });
+    },
   },
 };
 </script>
