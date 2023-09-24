@@ -35,14 +35,23 @@
           </div>
 
           <div class="features">
-            <div v-for="(feature, index) in this.filteredDesignFeatures" :key="index"
+            <div
+              v-for="(feature, index) in filteredDesignFeatures"
+              :key="index"
               :class="['feature', feature.expanded ? 'active' : '']"
-              @click="TOGGLE_DESCRIPTION(index, this.filteredDesignFeatures, feature.attributes.title), onClick(feature.attributes.title)">
+              @click="
+                TOGGLE_DESCRIPTION({ section: 'design', index }),
+                  onClick(feature.attributes.title)
+              "
+            >
               <div class="feature-content">
                 <h4 class="feature-title">{{ feature.attributes.title }}</h4>
                 <div class="expander-button">
                   <button>
-                    <span class="material-symbols-outlined" :class="{ 'rotate-180': feature.expanded }">
+                    <span
+                      class="material-symbols-outlined"
+                      :class="{ 'rotate-180': feature.expanded }"
+                    >
                       {{
                         feature.expanded ? 'do_not_disturb_on' : 'add_circle'
                       }}
@@ -62,7 +71,12 @@
 
   <section class="section section-banner">
     <div class="banner">
-      <img class="banner__image br-16 position-absolute" src="@/assets/middle.png" alt="" />
+      <img
+        loading="lazy"
+        class="banner__image br-16 position-absolute"
+        src="@/assets/middle.png"
+        alt=""
+      />
     </div>
   </section>
 
@@ -102,14 +116,20 @@
           </div>
 
           <div class="features">
-            <div v-for="(feature, index) in filteredDevelopFeatures" :key="index"
+            <div
+              v-for="(feature, index) in filteredDevelopFeatures"
+              :key="index"
               :class="['feature', feature.expanded ? 'active' : '']"
-              @click="TOGGLE_DESCRIPTION(index, filteredDevelopFeatures)">
+              @click="TOGGLE_DESCRIPTION({ section: 'develop', index })"
+            >
               <div class="feature-content">
                 <h4 class="feature-title">{{ feature.attributes.title }}</h4>
                 <div class="expander-button">
                   <button>
-                    <span class="material-symbols-outlined" :class="{ 'rotate-180': feature.expanded }">
+                    <span
+                      class="material-symbols-outlined"
+                      :class="{ 'rotate-180': feature.expanded }"
+                    >
                       {{
                         feature.expanded ? 'do_not_disturb_on' : 'add_circle'
                       }}
@@ -128,7 +148,6 @@
   </section>
 </template>
 
-
 <script>
 import { mapState, mapGetters, mapActions, mapMutations } from 'vuex';
 
@@ -136,12 +155,16 @@ export default {
   name: 'Features',
   computed: {
     ...mapState('features', ['features', 'loading']),
-    ...mapGetters('features', ['filteredDesignFeatures', 'filteredDevelopFeatures']),
+    ...mapGetters('features', [
+      'filteredDesignFeatures',
+      'filteredDevelopFeatures',
+      'getImageUrl'
+    ]),
   },
   methods: {
     ...mapActions('features', ['fetchFeatures']),
     ...mapMutations('features', ['TOGGLE_DESCRIPTION']),
-    onClick(eventValue){
+    onClick(eventValue) {
       this.$gtm.trackEvent({
         event: 'interaction',
         category: 'Features',
@@ -150,7 +173,7 @@ export default {
         value: eventValue,
         noninteraction: false, // Optional
       });
-    }
+    },
   },
   mounted() {
     this.fetchFeatures();
@@ -167,8 +190,11 @@ export default {
     grid-template-columns: 1fr;
     gap: 24px;
     width: 100%;
-
+    @media (width >=1024px) {
+      gap: 24px;
+    }
     @media (width >=1200px) {
+      grid-template-columns: minmax(auto, 304px) 1fr;
       gap: 64px;
     }
 
@@ -177,32 +203,22 @@ export default {
       grid-template-columns: 1fr;
       grid-template-rows: min-content;
       gap: 8px;
-    }
+      height: fit-content;
 
-    @media (width >=768px) {
-      .features {
+      @media (width >=768px) {
         grid-template-columns: repeat(2, 1fr);
         gap: 16px;
       }
-    }
 
-    @media (width >=1024px) {
-      gap: 24px;
-
-      .features {
+      @media (width >=1024px) {
         grid-template-columns: repeat(3, 1fr);
       }
-    }
-
-    @media (width >=1200px) {
-      grid-template-columns: minmax(auto, 304px) 1fr;
     }
 
     .section-sidebar {
       display: flex;
       flex-direction: column;
     }
-
   }
 
   &--product {
@@ -324,7 +340,7 @@ export default {
         font-size: 32px;
         font-variation-settings: 'OPSZ' 32;
         transform: rotate(0deg);
-        transition: transform 0.3s ease-in-out;
+        transition: transform 0.2s ease;
       }
     }
 
@@ -332,7 +348,7 @@ export default {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
+      gap: 8px;
       width: 100%;
     }
 
@@ -344,7 +360,7 @@ export default {
       height: 0;
       will-change: height, opacity;
       padding: 0 16px 16px 16px;
-      transition: 0.2s ease-in-out;
+      transition: 0.2s ease;
       overflow: hidden;
       position: absolute;
       border-radius: 0 0 8px 8px;
@@ -356,6 +372,7 @@ export default {
 
     &.active {
       .feature-description {
+        transition: 0.2s ease;
         height: min-content;
         opacity: 1;
       }

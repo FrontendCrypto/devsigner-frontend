@@ -41,12 +41,28 @@
                 </div>
               </div>
               <div class="gallery-items" v-else>
-                <div class="gallery-item" v-for="item in gallery" :key="item.id">
-                  <img class="gallery-image" :alt="item.attributes.prompt" :title="item.attributes.title"
-                    :src="getImageUrl(item.attributes.image_thumbail.data.attributes.url)" />
+                <div
+                  class="gallery-item"
+                  v-for="item in gallery"
+                  :key="item.id"
+                >
+                  <img
+                    loading="lazy"
+                    class="gallery-image"
+                    :alt="item.attributes.prompt"
+                    :title="item.attributes.title"
+                    :src="
+                      getImageUrl(
+                        item.attributes.image_thumbail.data.attributes.url
+                      )
+                    "
+                  />
                   <div class="gallery-item-overlay">
                     <h3>{{ item.attributes.title }}</h3>
-                    <router-link class="gallery-item-link" :to="{ name: 'gallery', params: { id: item.id } }" />
+                    <router-link
+                      class="gallery-item-link"
+                      :to="{ name: 'gallery', params: { id: item.id } }"
+                    />
                   </div>
                 </div>
               </div>
@@ -59,21 +75,16 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex';
+import { mapState, mapActions, mapGetters } from 'vuex';
 
 export default {
   name: 'Gallery',
   computed: {
     ...mapState('gallery', ['loading', 'gallery']),
+    ...mapGetters('gallery', ['getImageUrl']),
   },
   methods: {
     ...mapActions('gallery', ['fetchGallery']),
-    getImageUrl(path) {
-      const apiUrl = import.meta.env.VITE_APP_STRAPI_API_URL;
-      const host = import.meta.env.MODE = 'development' ? apiUrl : ''
-      const url = host + path
-      return url
-    }
   },
   mounted() {
     this.fetchGallery();

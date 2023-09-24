@@ -38,8 +38,11 @@ const getters = {
         category
     );
   },
-  getImageUrl: (state) => (part) => {
-    return part;
+  getImageUrl: (state) => (path) => {
+    const apiUrl = import.meta.env.VITE_APP_STRAPI_API_URL;
+    const host = (import.meta.env.MODE = 'development' ? apiUrl : '');
+    const url = `${host}${path}`;
+    return url;
   },
 };
 

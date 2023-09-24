@@ -1,29 +1,40 @@
 <template>
   <div class="articles">
-
     <div v-if="loading">Loading...</div>
     <div v-else :class="['cards-wrapper-3', this.listClass]">
-      <router-link @click="onClick(article.attributes.title)" :to="{ name: 'article', params: { id: article.id } }"
-        class="article card" v-for="article in articles.slice(0, 5)" :key="article.id">
-        <div class="article-content">
-          <span class="article-date">
-            {{ this.getFormattedDate(article.attributes.publishedAt) }}
-          </span>
-          <h3 class="article-title">{{ article.attributes.title }}</h3>
-          <p>
-            {{ getTruncateDescription(article.attributes.description) }}
-          </p>
-        </div>
-
-        <div>
+      <router-link
+        @click="onClick(article.attributes.title)"
+        :to="{ name: 'article', params: { id: article.id } }"
+        class="article card"
+        v-for="article in articles.slice(0, 5)"
+        :key="article.id"
+      >
+        <div class="card-content">
+          <div class="article-header">
+            <span class="card-date">
+              {{ this.getFormattedDate(article.attributes.publishedAt) }}
+            </span>
+            <h4 class="card-title">{{ article.attributes.title }}</h4>
+            <p>
+              {{ getTruncateDescription(article.attributes.description) }}
+            </p>
+          </div>
           <div class="article-categories">
-            <span class="article-category" v-if="article.attributes.categories.data.length"
-              v-for="category in article.attributes.categories.data">{{ category.attributes.name }}</span>
+            <span
+              class="article-category"
+              v-if="article.attributes.categories.data.length"
+              v-for="category in article.attributes.categories.data"
+              >{{ category.attributes.name }}</span
+            >
             <span v-else class="article-category">Sin categoría</span>
           </div>
         </div>
       </router-link>
-      <router-link to="/blog" class="card article-button" v-show="this.showArticleButton">
+      <router-link
+        to="/blog"
+        class="card article-button"
+        v-show="this.showArticleButton"
+      >
         Ver mas
       </router-link>
     </div>
@@ -36,25 +47,24 @@ import { mapState, mapGetters, mapActions } from 'vuex';
 export default {
   name: 'Articles',
   props: {
-    listType: String
+    listType: String,
   },
   data() {
     return {
       showArticleButton: true,
-    }
+    };
   },
   created() {
     if (this.listType === 'list') {
       this.showArticleButton = false;
-      this.listClass = 'list'
+      this.listClass = 'list';
     } else {
       this.showArticleButton = true;
-      this.listClass = ''
+      this.listClass = '';
     }
   },
   async mounted() {
     await this.fetchArticles();
-
   },
   computed: {
     ...mapState('articles', ['articles', 'loading']),
@@ -79,13 +89,6 @@ export default {
 <style scoped lang="scss">
 @import '@/assets/styles/variables.scss';
 
-
-.article-date {
-  font-size: 12px;
-  color: $neutral;
-  margin-bottom: 8px;
-}
-
 .article-button {
   background-color: $surfacePrimary;
   color: $contentOnPrimary;
@@ -101,6 +104,11 @@ export default {
   &:hover {
     background-color: darken($surfacePrimary, 5%);
   }
+}
+.article-header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .article-categories {
@@ -126,29 +134,7 @@ export default {
   width: 100%;
 }
 
-.article-content {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  height: 100%;
-  color: $contentOnSurface;
-}
-
-.article-title {
-  font-family: 'Inter', sans-serif;
-  font-size: 20px;
-  font-weight: 600;
-}
-
 .article {
-  display: flex;
-  gap: 24px;
-  flex-direction: column;
-  justify-content: space-between;
   text-decoration: none;
-
-  &:hover {
-    background-color: darken($surface2, 1%);
-  }
 }
 </style>

@@ -1,24 +1,23 @@
 ---
-title: Vue 3 + TypeScript + Vite + Caddy
+title: Vue 3 + Vite + Caddy
 description: The default Vue + Vite TS starter, utilizing `Caddy` to serve the built single page app
 tags:
   - Node
   - Vue 3
   - Vite
-  - TypeScript
   - Caddy
 ---
 
-# Vue 3 + TypeScript + Vite + Caddy
+## @TODO
 
-This template should help get you started developing with Vue and TypeScript in Vite. The template uses Vue 3 With TypeScript.
-
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/Qh0OAU?referralCode=ySCnWl)
-
-## ✨ Features
-
-- Vue 3 + TypeScript + Vite + Caddy
-- Caddy v2
+- Install and configure vue-meta.
+- Style responsive.
+- Cleanup page views and move logic to stores.
+- Cleanup and refactor styles.
+- Add every text to strapi.
+- Configure internationalization and translate everything.
+- Fix images not loading locally.
+- Limit article categories in article card to 3 and show "and X more"
 
 ## 💁‍♀️ Local Development
 

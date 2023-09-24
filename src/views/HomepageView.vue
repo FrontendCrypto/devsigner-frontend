@@ -1,24 +1,32 @@
 <template>
   <header class="header">
     <div class="header__content">
-      <img alt="Vue logo" src="@/assets/header-logo.svg" />
+      <img loading="eager" alt="Vue logo" src="@/assets/header-logo.svg" />
       <div v-if="loading">Loading@.</div>
       <div v-else>
-        <p v-if="homepage && homepage.attributes" class="text-body">{{ homepage.attributes.hero.title }}</p>
+        <p v-if="homepage && homepage.attributes" class="text-body">
+          {{ homepage.attributes.hero.title }}
+        </p>
       </div>
     </div>
     <!-- @todo store getImageUrl -->
     <!-- <div>
-      <img alt="Vue logo" :src="getImageUrl(homepage.attributes.imageleft.data.attributes.url)" />
+      <img
+        alt="Vue logo"
+        :src="getImageUrl(homepage.attributes.imageleft.data.url)"
+      />
     </div>
     <div>
-      <img alt="Vue logo" :src="getImageUrl(homepage.attributes.imageleft.data.attributes.url)" />
+      <img
+        alt="Vue logo"
+        :src="getImageUrl(homepage.attributes.imageright.data.url)"
+      />
     </div> -->
     <div>
-      <img alt="Vue logo" src="@/assets/left.png" />
+      <img loading="eager" alt="Vue logo" src="@/assets/left.png" />
     </div>
     <div>
-      <img alt="Vue logo" src="@/assets/right.png" />
+      <img loading="eager" alt="Vue logo" src="@/assets/right.png" />
     </div>
   </header>
   <section class="section section-articles">
@@ -26,7 +34,9 @@
       <div class="content">
         <div v-if="homepage && homepage.attributes" class="section-header">
           <div class="section-title">{{ homepage.attributes.blog.title1 }}</div>
-          <div class="section-subtitle">{{ homepage.attributes.blog.title2 }}</div>
+          <div class="section-subtitle">
+            {{ homepage.attributes.blog.title2 }}
+          </div>
           <p>{{ homepage.attributes.blog.subtitle }}</p>
         </div>
         <Articles list-type="grid" />
@@ -42,17 +52,24 @@
           <h3>find me on github</h3>
           <p>@frontendcrypto</p>
         </div>
-        <a href="https://github.com/FrontendCrypto" target="_blank" class="button button--primary button--medium">
+        <a
+          href="https://github.com/FrontendCrypto"
+          target="_blank"
+          class="button button--primary button--medium"
+        >
           Echa un vistazo
         </a>
       </div>
-      <img class="banner__image position-absolute" src="@/assets/cat.png" alt="" />
+      <img
+        loading="lazy"
+        class="banner__image position-absolute"
+        src="@/assets/cat.png"
+        alt=""
+      />
     </div>
   </section>
-
   <Skills />
   <Gallery />
-
   <Affiliates />
 </template>
 
@@ -71,11 +88,17 @@ export default {
     Skills,
     Gallery,
     Features,
-    Affiliates
+    Affiliates,
   },
   computed: {
     ...mapState('homepage', ['homepage', 'loading']),
     ...mapGetters('homepage', ['getImageUrl']),
+    getImageUrl(path) {
+      const apiUrl = import.meta.env.VITE_APP_STRAPI_API_URL;
+      const host = (import.meta.env.MODE = 'development' ? apiUrl : '');
+      const url = `${host}${path}`;
+      return url;
+    },
   },
   methods: {
     ...mapActions('homepage', ['fetchHomepage']),
@@ -89,8 +112,6 @@ export default {
 
 <styles scoped lang="scss">
 @import '@/assets/styles/variables.scss';
-
-
 
 .section-subtitle {
   color: $contentPrimary;

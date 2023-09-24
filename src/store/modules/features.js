@@ -12,14 +12,27 @@ const mutations = {
   SET_LOADING(state, loading) {
     state.loading = loading;
   },
-  TOGGLE_DESCRIPTION(state, index) {
-    state.features.forEach((feature, i) => {
+  TOGGLE_DESCRIPTION(state, { section, index }) {
+    const filteredFeatures =
+      section === 'design'
+        ? state.features.filter(
+            (feature) =>
+              feature.attributes.feature_category.data.attributes.feature_category ===
+              'design'
+          )
+        : state.features.filter(
+            (feature) =>
+              feature.attributes.feature_category.data.attributes.feature_category ===
+              'develop'
+          );
+
+    filteredFeatures.forEach((feature, i) => {
       if (i !== index) {
         feature.expanded = false;
       }
     });
 
-    state.features[index].expanded = !state.features[index].expanded;
+    filteredFeatures[index].expanded = !filteredFeatures[index].expanded;
   },
 };
 
