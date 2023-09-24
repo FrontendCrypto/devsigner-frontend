@@ -17,13 +17,13 @@ const mutations = {
       section === 'design'
         ? state.features.filter(
             (feature) =>
-              feature.attributes.feature_category.data.attributes.feature_category ===
-              'design'
+              feature.attributes.feature_category.data.attributes
+                .feature_category === 'design'
           )
         : state.features.filter(
             (feature) =>
-              feature.attributes.feature_category.data.attributes.feature_category ===
-              'develop'
+              feature.attributes.feature_category.data.attributes
+                .feature_category === 'develop'
           );
 
     filteredFeatures.forEach((feature, i) => {

@@ -5,8 +5,10 @@ import skillsModule from './modules/skills';
 import featuresModule from './modules/features';
 import galleryModule from './modules/gallery';
 import affiliatesModule from './modules/affiliates';
+import * as getters from './getters';
 
 export default createStore({
+  getters,
   modules: {
     homepage: homepageModule,
     articles: articlesModule,

@@ -158,7 +158,6 @@ export default {
     ...mapGetters('features', [
       'filteredDesignFeatures',
       'filteredDevelopFeatures',
-      'getImageUrl'
     ]),
   },
   methods: {
@@ -171,7 +170,6 @@ export default {
         action: 'click',
         label: 'CLick en feature',
         value: eventValue,
-        noninteraction: false, // Optional
       });
     },
   },
