@@ -35,6 +35,7 @@
 .cards-wrapper-3 {
   display: grid;
   grid-template-columns: 1fr;
+  grid-auto-rows: minmax(240px, min-content);
   gap: 16px;
   width: 100%;
 
@@ -54,6 +55,7 @@
 .cards-wrapper-2 {
   display: grid;
   grid-template-columns: 1fr;
+  grid-auto-rows: minmax(240px, min-content);
   gap: 16px;
   width: 100%;
 

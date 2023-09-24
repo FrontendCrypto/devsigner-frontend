@@ -10,11 +10,20 @@
           </p>
         </div>
         <div class="websites cards-wrapper-2">
-          <div v-for="affiliate in affiliates" class="website card" :key="affiliate.id">
+          <div
+            v-for="affiliate in affiliates"
+            class="website card"
+            :key="affiliate.id"
+          >
             <h3>{{ affiliate.attributes.title }}</h3>
             <div>
               <p>{{ affiliate.attributes.description }}</p>
-              <a class="button button--primary button--medium" :href="affiliate.attributes.url" target="_blank">
+              <a
+                class="button button--primary button--medium"
+                @click="onClick(affiliate.attributes.title)"
+                :href="affiliate.attributes.url"
+                target="_blank"
+              >
                 {{ affiliate.attributes.button }}
               </a>
             </div>
@@ -34,6 +43,14 @@ export default {
   },
   methods: {
     ...mapActions('affiliates', ['fetchAffiliates']),
+    onClick(id) {
+      this.$gtm.trackEvent({
+        category: 'Affiliate',
+        action: 'click',
+        label: 'Affiliate click',
+        value: id,
+      });
+    },
   },
   async mounted() {
     await this.fetchAffiliates();

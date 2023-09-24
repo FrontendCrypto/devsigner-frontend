@@ -32,9 +32,9 @@ const actions = {
 };
 
 const getters = {
-  getImageUrl: (state) => (part) => {
-    return part;
-  },
+  // getImageUrl: (state) => (part) => {
+  //   return part;
+  // },
 };
 
 export default {
