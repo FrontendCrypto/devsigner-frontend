@@ -82,6 +82,9 @@ export default {
   computed: {
     ...mapState('gallery', ['loading', 'gallery']),
     ...mapGetters('gallery', ['getImageUrl']),
+    getImageUrl() {
+      return this.$store.getters.getImageUrl;
+    },
   },
   methods: {
     ...mapActions('gallery', ['fetchGallery']),

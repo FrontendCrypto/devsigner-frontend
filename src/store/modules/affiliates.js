@@ -30,14 +30,7 @@ const actions = {
   },
 };
 
-const getters = {
-  getImageUrl: (state) => (path) => {
-    const apiUrl = import.meta.env.VITE_APP_STRAPI_API_URL;
-    const host = (import.meta.env.MODE = 'development' ? apiUrl : '');
-    const url = `${host}${path}`;
-    return url;
-  },
-};
+const getters = {};
 
 export default {
   namespaced: true,

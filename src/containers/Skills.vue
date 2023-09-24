@@ -78,6 +78,9 @@ export default {
   computed: {
     ...mapState('skills', ['skills', 'loading']),
     ...mapGetters('skills', ['filteredSkills', 'getImageUrl']),
+    getImageUrl() {
+      return this.$store.getters.getImageUrl;
+    },
   },
   methods: {
     ...mapActions('skills', ['fetchSkills']),

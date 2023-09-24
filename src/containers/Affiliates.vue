@@ -51,6 +51,9 @@ export default {
   computed: {
     ...mapState('affiliates', ['affiliates', 'loading']),
     ...mapGetters('affiliates', ['getImageUrl']),
+    getImageUrl() {
+      return this.$store.getters.getImageUrl;
+    },
   },
   methods: {
     ...mapActions('affiliates', ['fetchAffiliates']),
