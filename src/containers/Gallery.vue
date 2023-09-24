@@ -47,6 +47,7 @@
                   :key="item.id"
                 >
                   <img
+                    loading="lazy"
                     class="gallery-image"
                     :alt="item.attributes.prompt"
                     :title="item.attributes.title"
@@ -80,7 +81,7 @@ export default {
   name: 'Gallery',
   computed: {
     ...mapState('gallery', ['loading', 'gallery']),
-    ...mapGetters('gallery', ['getImageUrl'])
+    ...mapGetters('gallery', ['getImageUrl']),
   },
   methods: {
     ...mapActions('gallery', ['fetchGallery']),

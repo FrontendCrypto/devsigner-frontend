@@ -14,6 +14,7 @@
               <p>{{ skill.attributes.description }}</p>
             </div>
             <img
+              loading="lazy"
               class="skill-card__image"
               :src="
                 getImageUrl(skill.attributes.skill_logo.data.attributes.url)
@@ -35,6 +36,7 @@
               <p>{{ skill.attributes.description }}</p>
             </div>
             <img
+              loading="lazy"
               class="skill-card__image"
               :src="
                 getImageUrl(skill.attributes.skill_logo.data.attributes.url)
@@ -44,7 +46,6 @@
         </div>
       </div>
       <div class="skills-column">
-        <h3>Develop</h3>
         <div class="skills-column__content">
           <div
             class="skill-card"
@@ -56,6 +57,7 @@
               <p>{{ skill.attributes.description }}</p>
             </div>
             <img
+              loading="lazy"
               class="skill-card__image"
               :src="
                 getImageUrl(skill.attributes.skill_logo.data.attributes.url)

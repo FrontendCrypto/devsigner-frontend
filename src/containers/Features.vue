@@ -72,6 +72,7 @@
   <section class="section section-banner">
     <div class="banner">
       <img
+        loading="lazy"
         class="banner__image br-16 position-absolute"
         src="@/assets/middle.png"
         alt=""
@@ -157,6 +158,7 @@ export default {
     ...mapGetters('features', [
       'filteredDesignFeatures',
       'filteredDevelopFeatures',
+      'getImageUrl'
     ]),
   },
   methods: {

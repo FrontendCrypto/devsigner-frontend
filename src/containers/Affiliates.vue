@@ -9,23 +9,33 @@
             Sí, estos son enlaces de afiliado, hay que rascar de donde se pueda.
           </p>
         </div>
-        <div class="websites cards-wrapper-2">
+        <div class="websites cards-wrapper-3">
           <div
             v-for="affiliate in affiliates"
             class="website card"
             :key="affiliate.id"
           >
-            <h3>{{ affiliate.attributes.title }}</h3>
-            <div>
-              <p>{{ affiliate.attributes.description }}</p>
-              <a
-                class="button button--primary button--medium"
-                @click="onClick(affiliate.attributes.title)"
-                :href="affiliate.attributes.url"
-                target="_blank"
-              >
-                {{ affiliate.attributes.button }}
-              </a>
+            <div class="card-header">
+              <img
+                loading="lazy"
+                :src="
+                  getImageUrl(affiliate.attributes.image.data.attributes.url)
+                "
+              />
+            </div>
+            <div class="card-content">
+              <h4 class="card-title">{{ affiliate.attributes.title }}</h4>
+              <div>
+                <p>{{ affiliate.attributes.description }}</p>
+                <a
+                  class="button button--primary button--medium"
+                  @click="onClick(affiliate.attributes.title)"
+                  :href="affiliate.attributes.url"
+                  target="_blank"
+                >
+                  {{ affiliate.attributes.button }}
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -34,12 +44,13 @@
   </section>
 </template>
 <script>
-import { mapState, mapActions } from 'vuex';
+import { mapState, mapGetters, mapActions } from 'vuex';
 
 export default {
   name: 'Affiliates',
   computed: {
     ...mapState('affiliates', ['affiliates', 'loading']),
+    ...mapGetters('affiliates', ['getImageUrl']),
   },
   methods: {
     ...mapActions('affiliates', ['fetchAffiliates']),
@@ -61,26 +72,9 @@ export default {
 <style scoped lang="scss">
 @import '@/assets/styles/variables.scss';
 
-.button {
-  display: inline-flex !important;
-}
-
 .website {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-
   h3 {
     margin-bottom: 24px;
-  }
-
-  a {
-    display: inline-flex;
-    margin-top: 24px;
-  }
-
-  &:hover {
-    background-color: darken($surface2, 1%);
   }
 }
 </style>

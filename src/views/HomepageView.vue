@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <div class="header__content">
-      <img alt="Vue logo" src="@/assets/header-logo.svg" />
+      <img loading="eager" alt="Vue logo" src="@/assets/header-logo.svg" />
       <div v-if="loading">Loading@.</div>
       <div v-else>
         <p v-if="homepage && homepage.attributes" class="text-body">
@@ -23,10 +23,10 @@
       />
     </div> -->
     <div>
-      <img alt="Vue logo" src="@/assets/left.png" />
+      <img loading="eager" alt="Vue logo" src="@/assets/left.png" />
     </div>
     <div>
-      <img alt="Vue logo" src="@/assets/right.png" />
+      <img loading="eager" alt="Vue logo" src="@/assets/right.png" />
     </div>
   </header>
   <section class="section section-articles">
@@ -61,16 +61,15 @@
         </a>
       </div>
       <img
+        loading="lazy"
         class="banner__image position-absolute"
         src="@/assets/cat.png"
         alt=""
       />
     </div>
   </section>
-
   <Skills />
   <Gallery />
-
   <Affiliates />
 </template>
 
@@ -93,7 +92,7 @@ export default {
   },
   computed: {
     ...mapState('homepage', ['homepage', 'loading']),
-    // ...mapGetters('homepage', ['getImageUrl']),
+    ...mapGetters('homepage', ['getImageUrl']),
     getImageUrl(path) {
       const apiUrl = import.meta.env.VITE_APP_STRAPI_API_URL;
       const host = (import.meta.env.MODE = 'development' ? apiUrl : '');
