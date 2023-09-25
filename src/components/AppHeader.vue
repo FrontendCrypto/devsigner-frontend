@@ -3,7 +3,7 @@
     <nav class="br-8">
       <router-link to="/" class="header-title">devsigner.xyz</router-link>
       <div class="nav-content">
-        <p>Portfolio (WIP)</p>
+        <span>Portfolio (WIP)</span>
         <router-link
           to="/blog"
           tag="button"
@@ -67,21 +67,19 @@ nav {
   padding: 16px 24px;
   width: 100%;
   gap: 24px;
+  .nav-content {
+    flex-direction: column;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
 
-  @media (width > 480px) {
+  @media (width > 768px) {
     flex-direction: row;
+    .nav-content {
+      flex-direction: row;
+      align-items: center;
+    }
   }
-
-  @media (width > 1024px) {
-  }
-
-  @media (width > 1200px) {
-  }
-}
-
-.nav-content {
-  display: flex;
-  gap: 16px;
-  align-items: center;
 }
 </styles>

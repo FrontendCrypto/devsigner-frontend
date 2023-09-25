@@ -11,6 +11,7 @@
     </div>
     <div>
       <img
+      class="header-image header-image--left"
         v-if="homepage && homepage.attributes"
         :alt="homepage.attributes.imageleft.data.attributes.alternativeText"
         :src="getImageUrl(homepage.attributes.imageleft.data.attributes.url)"
@@ -18,6 +19,7 @@
     </div>
     <div>
       <img
+      class="header-image header-image--right"
         v-if="homepage && homepage.attributes"
         :alt="homepage.attributes.imageleft.data.attributes.alternativeText"
         :src="getImageUrl(homepage.attributes.imageright.data.attributes.url)"
