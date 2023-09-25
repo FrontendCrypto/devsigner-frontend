@@ -9,27 +9,20 @@
         </p>
       </div>
     </div>
-    <!-- @todo store getImageUrl -->
     <div>
       <img
         v-if="homepage && homepage.attributes"
-        alt="Vue logo"
+        :alt="homepage.attributes.imageleft.data.attributes.alternativeText"
         :src="getImageUrl(homepage.attributes.imageleft.data.attributes.url)"
       />
     </div>
     <div>
       <img
         v-if="homepage && homepage.attributes"
-        alt="Vue logo"
+        :alt="homepage.attributes.imageleft.data.attributes.alternativeText"
         :src="getImageUrl(homepage.attributes.imageright.data.attributes.url)"
       />
     </div>
-    <!-- <div>
-      <img loading="eager" alt="Vue logo" src="@/assets/left.png" />
-    </div>
-    <div>
-      <img loading="eager" alt="Vue logo" src="@/assets/right.png" />
-    </div> -->
   </header>
   <section class="section section-articles">
     <div class="container">
