@@ -4,12 +4,26 @@
       <h4 class="title">Otros articulos</h4>
       <div v-if="loading">Loading...</div>
       <div v-else class="sidebar-articles">
-        <div v-for="article in sidebarArticles.slice(0, 5)" :key="article.id" class="sidebar-article">
-          <router-link class="article-link" :to="{ name: 'article', params: { id: article.id } }">
+        <div
+          v-for="article in sidebarArticles.slice(0, 5)"
+          :key="article.id"
+          class="sidebar-article"
+        >
+          <router-link
+            class="article-link"
+            :to="{ name: 'article', params: { id: article.id } }"
+          >
             <span class="article-title">{{ article.attributes.title }}</span>
             <div class="article-categories">
-              <span class="article-category" v-if="article.attributes.categories.data.length"
-                v-for="category in article.attributes.categories.data">{{ category.attributes.name }}</span>
+              <span
+                class="article-category"
+                v-if="article.attributes.categories.data.length"
+                v-for="category in article.attributes.categories.data.slice(
+                  0,
+                  2
+                )"
+                >{{ category.attributes.name }}</span
+              >
               <span v-else class="article-category">Sin categoría</span>
             </div>
           </router-link>
@@ -40,7 +54,9 @@ export default {
 @import '@/assets/styles/variables.scss';
 
 .article-categories {
-  display: flex;
+  display: grid;
+  grid-template-columns: max-content;
+  grid-template-rows: 1fr;
   gap: 8px;
 }
 
@@ -68,10 +84,10 @@ export default {
   color: $contentOnSurface;
   text-decoration: none;
   font-size: 14px;
+  overflow: hidden;
 
   &:hover {
-    background-color: $surface3;
-    color: $tertiary;
+    background-color: darken($surface3, 5%);
   }
 }
 

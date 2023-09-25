@@ -6,9 +6,18 @@
         @click="onClick(article.attributes.title)"
         :to="{ name: 'article', params: { id: article.id } }"
         class="article card"
-        v-for="article in articles.slice(0, 5)"
+        v-for="(article, index) in articles.slice(0, 5)"
         :key="article.id"
       >
+        <div v-if="index === 0" class="article-badge">
+          <span>NUEVO</span>
+        </div>
+        <div class="card-image">
+          <img
+            loading="lazzy"
+            :src="getImageUrl(article.attributes.image.data.attributes.url)"
+          />
+        </div>
         <div class="card-content">
           <div class="article-header">
             <span class="card-date">
@@ -60,7 +69,7 @@ export default {
       this.listClass = 'list';
     } else {
       this.showArticleButton = true;
-      this.listClass = '';
+      this.listClass = 'grid';
     }
   },
   async mounted() {
@@ -68,7 +77,14 @@ export default {
   },
   computed: {
     ...mapState('articles', ['articles', 'loading']),
-    ...mapGetters('articles', ['getFormattedDate', 'getTruncateDescription']),
+    ...mapGetters('articles', [
+      'getFormattedDate',
+      'getTruncateDescription',
+      'getImageUrl',
+    ]),
+    getImageUrl() {
+      return this.$store.getters.getImageUrl;
+    },
   },
   methods: {
     ...mapActions('articles', ['fetchArticles']),
@@ -77,9 +93,8 @@ export default {
         event: 'interaction',
         category: 'Artículo',
         action: 'click',
-        label: 'CLick en artículo',
+        label: 'Click en artículo',
         value: eventValue,
-        noninteraction: false, // Optional
       });
     },
   },
@@ -88,7 +103,35 @@ export default {
 
 <style scoped lang="scss">
 @import '@/assets/styles/variables.scss';
-
+.grid {
+  .article {
+    .article-header {
+      margin-bottom: 24px;
+    }
+    .card-image {
+      display: none;
+    }
+  }
+}
+.list {
+  .article {
+    flex-direction: row;
+    .card-image {
+      aspect-ratio: 1;
+      background-color: $primary;
+      height: 100%;
+      img {
+        object-fit: cover;
+        object-position: center;
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .card-content {
+      padding: 24px 16px;
+    }
+  }
+}
 .article-button {
   background-color: $surfacePrimary;
   color: $contentOnPrimary;
@@ -100,10 +143,17 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-
+  padding: 24px 0;
   &:hover {
     background-color: darken($surfacePrimary, 5%);
+    .article-badge {
+      background-color: darken($primary, 5%);
+    }
   }
+}
+
+.cards-wrapper-3 {
+  grid-auto-rows: auto;
 }
 .article-header {
   display: flex;
@@ -136,5 +186,22 @@ export default {
 
 .article {
   text-decoration: none;
+  overflow: hidden;
+}
+
+.article-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: $primary;
+  font-size: 10px;
+  color: $contentOnPrimary;
+  padding: 2px 4px;
+  transform: rotate(45deg);
+  text-align: center;
+  top: 7px;
+  right: -14px;
+  width: 60px;
+  transition: 0.2s ease;
 }
 </style>

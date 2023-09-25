@@ -18,7 +18,7 @@ const actions = {
   async fetchHomepage({ commit }) {
     try {
       const response = await axios.get(
-        import.meta.env.VITE_APP_STRAPI_API_URL + '/api/homepage?populate=*'
+        `${import.meta.env.VITE_APP_STRAPI_API_URL}/api/homepage?populate=*`
       );
       const homepage = response.data.data;
 
@@ -31,14 +31,7 @@ const actions = {
   },
 };
 
-const getters = {
-  getImageUrl: (state) => (path) => {
-    const apiUrl = import.meta.env.VITE_APP_STRAPI_API_URL;
-    const host = (import.meta.env.MODE = 'development' ? apiUrl : '');
-    const url = `${host}${path}`;
-    return url;
-  }
-};
+const getters = {};
 
 export default {
   namespaced: true,
