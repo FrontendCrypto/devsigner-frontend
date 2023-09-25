@@ -17,7 +17,9 @@ tags:
 - Add every text to strapi.
 - Configure internationalization and translate everything.
 - Fix images not loading locally.
-- Limit article categories in article card to 3 and show "and X more"
+- Limit article categories in article card to 3 and show "and X more".
+- Get header images via endpoint.
+- Componentize homepage sections.
 
 ## 💁‍♀️ Local Development
 

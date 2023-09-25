@@ -3,6 +3,7 @@
     <nav class="br-8">
       <router-link to="/" class="header-title">devsigner.xyz</router-link>
       <div class="nav-content">
+        <p>Portfolio (WIP)</p>
         <router-link
           to="/blog"
           tag="button"

@@ -10,24 +10,26 @@
       </div>
     </div>
     <!-- @todo store getImageUrl -->
-    <!-- <div>
+    <div>
       <img
+        v-if="homepage && homepage.attributes"
         alt="Vue logo"
-        :src="getImageUrl(homepage.attributes.imageleft.data.url)"
+        :src="getImageUrl(homepage.attributes.imageleft.data.attributes.url)"
       />
     </div>
     <div>
       <img
+        v-if="homepage && homepage.attributes"
         alt="Vue logo"
-        :src="getImageUrl(homepage.attributes.imageright.data.url)"
+        :src="getImageUrl(homepage.attributes.imageright.data.attributes.url)"
       />
-    </div> -->
-    <div>
+    </div>
+    <!-- <div>
       <img loading="eager" alt="Vue logo" src="@/assets/left.png" />
     </div>
     <div>
       <img loading="eager" alt="Vue logo" src="@/assets/right.png" />
-    </div>
+    </div> -->
   </header>
   <section class="section section-articles">
     <div class="container">
@@ -43,6 +45,7 @@
       </div>
     </div>
   </section>
+
   <Features />
 
   <section class="section section-banner">
@@ -92,19 +95,16 @@ export default {
   },
   computed: {
     ...mapState('homepage', ['homepage', 'loading']),
-    ...mapGetters('homepage', ['getImageUrl']),
-    getImageUrl(path) {
-      const apiUrl = import.meta.env.VITE_APP_STRAPI_API_URL;
-      const host = (import.meta.env.MODE = 'development' ? apiUrl : '');
-      const url = `${host}${path}`;
-      return url;
+    // ...mapGetters('homepage', ['getImageUrl']),
+    getImageUrl() {
+      return this.$store.getters.getImageUrl;
     },
   },
   methods: {
     ...mapActions('homepage', ['fetchHomepage']),
   },
-  async mounted() {
-    await this.fetchHomepage();
+  mounted() {
+    this.fetchHomepage();
     this.$gtm.trackView(`Inicio`, 'currentPath');
   },
 };
