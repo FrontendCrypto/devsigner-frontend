@@ -128,7 +128,6 @@ export default {
       height: 200px;
       @media (width >=768px) {
         height: 100%;
-        // aspect-ratio: 1;
         max-width: 196px;
       }
       img {
@@ -136,6 +135,7 @@ export default {
         object-position: center;
         width: 100%;
         height: 100%;
+        margin: 0;
       }
     }
     .card-content {
