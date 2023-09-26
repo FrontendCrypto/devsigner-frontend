@@ -11,7 +11,7 @@
     </div>
     <div>
       <img
-      class="header-image header-image--left"
+        class="header-image header-image--left"
         v-if="homepage && homepage.attributes"
         :alt="homepage.attributes.imageleft.data.attributes.alternativeText"
         :src="getImageUrl(homepage.attributes.imageleft.data.attributes.url)"
@@ -19,7 +19,7 @@
     </div>
     <div>
       <img
-      class="header-image header-image--right"
+        class="header-image header-image--right"
         v-if="homepage && homepage.attributes"
         :alt="homepage.attributes.imageleft.data.attributes.alternativeText"
         :src="getImageUrl(homepage.attributes.imageright.data.attributes.url)"
@@ -36,7 +36,7 @@
           </div>
           <p>{{ homepage.attributes.blog.subtitle }}</p>
         </div>
-        <Articles list-type="grid" />
+        <Articles list-type="grid" :limit="5" />
       </div>
     </div>
   </section>
@@ -100,7 +100,6 @@ export default {
   },
   mounted() {
     this.fetchHomepage();
-    this.$gtm.trackView(`Inicio`, 'currentPath');
   },
 };
 </script>

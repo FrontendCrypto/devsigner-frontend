@@ -6,7 +6,7 @@
         @click="onClick(article.attributes.title)"
         :to="{ name: 'article', params: { id: article.id } }"
         class="article card"
-        v-for="(article, index) in articles.slice(0, 5)"
+        v-for="(article, index) in articles.slice(0, this.limit)"
         :key="article.id"
       >
         <div v-if="index === 0" class="article-badge">
@@ -57,6 +57,7 @@ export default {
   name: 'Articles',
   props: {
     listType: String,
+    limit: Number,
   },
   data() {
     return {
@@ -169,6 +170,9 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  p {
+    font-size: 16px !important;
+  }
 }
 
 .article-categories {

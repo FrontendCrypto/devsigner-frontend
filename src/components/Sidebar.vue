@@ -54,9 +54,8 @@ export default {
 @import '@/assets/styles/variables.scss';
 
 .article-categories {
-  display: grid;
-  grid-template-columns: max-content;
-  grid-template-rows: 1fr;
+  display: flex;
+  flex-wrap: nowrap;
   gap: 8px;
 }
 

@@ -1,12 +1,13 @@
 <template>
-  <div>
-    <div class="container">
+  <div class="blog-entry">
+    <div class="container article-container">
       <div v-if="hasArticleData" class="content">
-        <article>
-          <div id="editor" v-html="parsedContent"></div>
-          <p>{{ article.attributes.publishedAt }}</p>
+        <article class="article">
+          <div id="editor" class="editor" v-html="parsedContent"></div>
+          <hr class="separator">
+          <p class="published-at">Publicado el {{ article.attributes.publishedAt }} por Pablo Carballeda</p>
         </article>
-        <Sidebar />
+        <Articles list-type="list" :limit="5" />
       </div>
     </div>
   </div>
@@ -14,13 +15,13 @@
 
 <script>
 import axios from 'axios';
-import Sidebar from '@/components/Sidebar.vue';
+import Articles from '@/containers/Articles.vue';
 import MarkdownIt from 'markdown-it';
 
 export default {
   name: 'ArticleView',
   components: {
-    Sidebar,
+    Articles,
   },
   data() {
     return {
@@ -46,7 +47,10 @@ export default {
       .get(apiUrl)
       .then((response) => {
         this.article = response.data.data;
-        this.$gtm.trackView(`Artículo - ${this.article.attributes.title}`, 'currentPath');
+        this.$gtm.trackView(
+          `Artículo - ${this.article.attributes.title}`,
+          'currentPath'
+        );
         this.parsedContent = this.md.render(this.article.attributes.content);
       })
       .catch((error) => {
@@ -57,19 +61,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.content {
-  display: grid;
-  grid-template-columns: 1fr 300px;
-  gap: 24px;
-  height: min-content;
-  padding: 0;
-}
-
-article {
-  height: 100%;
-}
-
-h1 {
-  margin-bottom: 32px;
-}
+@import '@/assets/styles/variables.scss';
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;600&display=swap');
 </style>
