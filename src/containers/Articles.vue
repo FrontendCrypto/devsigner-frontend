@@ -115,11 +115,21 @@ export default {
 }
 .list {
   .article {
-    flex-direction: row;
+    flex-direction: column;
+    height: auto;
+    @media (width >=768px) {
+      flex-direction: row;
+    }
+
     .card-image {
-      aspect-ratio: 1;
       background-color: $primary;
-      height: 100%;
+      width: 100%;
+      height: 200px;
+      @media (width >=768px) {
+        height: 100%;
+        aspect-ratio: 1;
+        max-width: 196px;
+      }
       img {
         object-fit: cover;
         object-position: center;

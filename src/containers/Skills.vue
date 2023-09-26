@@ -46,6 +46,7 @@
         </div>
       </div>
       <div class="skills-column">
+        <h3>Develop</h3>
         <div class="skills-column__content">
           <div
             class="skill-card"

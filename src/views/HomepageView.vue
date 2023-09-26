@@ -47,7 +47,7 @@
     <div class="banner">
       <div class="banner__content banner__content">
         <div>
-          <h3>find me on github</h3>
+          <h3>Encuentrame en GitHub</h3>
           <p>@frontendcrypto</p>
         </div>
         <a

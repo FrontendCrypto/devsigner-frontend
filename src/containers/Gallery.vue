@@ -3,30 +3,35 @@
     <div class="container">
       <div class="content">
         <div class="section-header">
-          <div class="section-title">I.A</div>
-          <div class="section-subtitle">HERRAMIENTA</div>
+          <div class="section-title">MACHINE LEARNING</div>
+          <div class="section-subtitle">HERRAMIENTA Y RETO</div>
         </div>
         <div class="section-content">
           <div class="sidebar">
             <p>
-              La forma en que veo la IA es como una herramienta que puede
-              agilizar muchas rutinarias y repetitivas, permitiéndome enfocarme
-              en lo que realmente importa: la creatividad y la innovación.
-            </p>
-            <p>
-              Esta tecnología mer permite dedicas más tiempo a explorar nuevas
-              ideas, experimentar con diseños y mucho más.
-            </p>
-            <p>
-              En última instancia, la IA no reemplaza mi experiencia y juicio
-              como diseñador, sino que complementa mis habilidades y me ayuda a
-              entregar producto de mayor calidad.
-            </p>
-            <p>
-              <b>¿Perder mi trabajo por culpa de una I.A.?</b>
+              El machine learning es una herramienta que puede automatizar
+              tareas repetitivas y liberarme para centrarme en la creatividad e
+              innovación.
             </p>
 
-            <p>Más bien diría potenciar mi trabajo gracias a la I.A.</p>
+            <p>
+              Esta tecnología me permite dedicar más tiempo a explorar nuevas
+              ideas, experimentar con diseños y mucho más. En breve me gustaría
+              poder profundizar en este campo a nivel técnico, creo que sería un
+              gran reto personal.
+            </p>
+
+            <p>
+              Esta herramienta no reemplaza mi experiencia y juicio, sino que
+              complementa mis habilidades y me ayuda a crear productos de mayor
+              calidad.
+            </p>
+
+            <p>
+              No temo perder mi trabajo por culpa de ella. Al contrario, creo
+              que puede potenciar mi trabajo y ayudarme a ser más productivo y
+              creativo.
+            </p>
           </div>
           <div>
             <div class="items-content">
@@ -135,7 +140,8 @@ export default {
 
 .gallery-item {
   position: relative;
-
+  user-select: none;
+  
   &:hover {
     .gallery-item-overlay {
       opacity: 1;

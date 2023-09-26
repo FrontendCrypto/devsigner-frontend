@@ -9,31 +9,32 @@
         <div class="section-content">
           <div class="section-sidebar">
             <p>
-              Cuento con unos de 11 años de experiencia en diseño y desarrollo
-              de productos digitales, creo que es experiencia suficiente para
-              enriquecer cualquier proyecto.
+              Tengo 11 años de experiencia en diseño y desarrollo de productos
+              digitales. Mi experiencia es suficiente para enriquecer cualquier
+              proyecto.
             </p>
+
             <p>
-              Me considero un profesional con un enfoque pragmático, centrado en
-              el usuario y con capacidad para trabajar en equipo de manera
-              efectiva.
+              Soy un profesional pragmático, centrado en el usuario y con
+              capacidad para trabajar en equipo de manera efectiva.
             </p>
+
             <p>
-              Soy autodidacta y considero que me adapto fácilmente a entornos
-              cambiantes, he pasado la mayor parte de mi trayectoria profesional
-              en startups.
+              Soy autodidacta y me adapto fácilmente a entornos cambiantes. He
+              trabajado en startups durante la mayor parte de mi carrera.
             </p>
+
             <p>
               Combino mi enfoque lógico y creativo para contribuir al éxito del
               proyecto.
             </p>
+
             <p>
-              Creo que mi experiencia en desarrollo frontend tiene mucho que
-              aportar, al hablar el mismo lenguaje que quien tiene que tomar tu
-              diseño para darle vida.
+              Mi experiencia en desarrollo frontend es una gran ventaja, ya que
+              me permite hablar el mismo lenguaje que los programadores y hace
+              que todo sea más fluido.
             </p>
           </div>
-
           <div class="features">
             <div
               v-for="(feature, index) in filteredDesignFeatures"
@@ -90,28 +91,27 @@
         <div class="section-content">
           <div class="section-sidebar">
             <p>
-              Cuento con unos de 11 años de experiencia en diseño y desarrollo
-              de productos digitales, creo que es experiencia suficiente para
-              enriquecer cualquier proyecto.
+              Con más de 10 años de experiencia en desarrollo frontend, tengo un
+              enfoque sólido que combina lógica y creatividad. Esto me permite
+              abordar desafíos técnicos de manera pragmática y orientada al
+              usuario.
             </p>
             <p>
-              Me considero un profesional con un enfoque pragmático, centrado en
-              el usuario y con capacidad para trabajar en equipo de manera
-              efectiva.
+              También me centro en la optimización del rendimiento, la
+              escalabilidad y la experiencia del usuario.
             </p>
             <p>
-              Soy autodidacta y considero que me adapto fácilmente a entornos
-              cambiantes, he pasado la mayor parte de mi trayectoria profesional
-              en startups.
+              Creo que las interfaces deben ser receptivas, adaptables a
+              diferentes dispositivos y mejorar la satisfacción del usuario.
             </p>
             <p>
-              Combino mi enfoque lógico y creativo para contribuir al éxito del
-              proyecto.
+              Uno de mis puntos fuertes es la capacidad de traducir diseños en
+              código funcional de manera efectiva.
             </p>
             <p>
-              Creo que mi experiencia en desarrollo frontend tiene mucho que
-              aportar, al hablar el mismo lenguaje que quien tiene que tomar tu
-              diseño para darle vida.
+              Hablo el mismo lenguaje que los diseñadores, lo que facilita la
+              comunicación y garantiza que la visión de diseño se convierta en
+              una experiencia de usuario sólida y coherente.
             </p>
           </div>
 
@@ -168,7 +168,7 @@ export default {
         event: 'interaction',
         category: 'Features',
         action: 'click',
-        label: 'CLick en feature',
+        label: 'Click en feature',
         value: eventValue,
       });
     },

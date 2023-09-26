@@ -1,11 +1,11 @@
 <template>
   <div class="blog">
     <div class="container">
+      <div>
+        <h1>Cuaderno de bitacora</h1>
+      </div>
       <div class="content">
-        <div>
-          <h1>Cuaderno de bitacora</h1>
-          <Articles list-type="list" />
-        </div>
+        <Articles list-type="list" />
         <Sidebar />
       </div>
     </div>
@@ -32,10 +32,20 @@ export default {
 
 .content {
   display: grid;
-  grid-template-columns: 1fr 300px;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, min-content);
   gap: 24px;
   height: min-content;
   padding: 0;
+
+  @media (width >=1024px) {
+    grid-template-columns: 1fr 300px;
+    grid-template-rows: min-content;
+  }
+
+  // @media (width >=1024px) {
+  //   grid-template-columns: 1fr 300px;
+  // }
 }
 
 h1 {
