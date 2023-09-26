@@ -128,7 +128,7 @@ export default {
       height: 200px;
       @media (width >=768px) {
         height: 100%;
-        aspect-ratio: 1;
+        // aspect-ratio: 1;
         max-width: 196px;
       }
       img {

@@ -9,9 +9,6 @@ export default {
   components: {
     AppHeader,
   },
-  data() {
-    return {};
-  },
 };
 </script>
 

@@ -4,6 +4,8 @@ import router from './router';
 import { createGtm } from '@gtm-support/vue-gtm';
 import store from './store';
 import axios from 'axios';
+// import VueMeta from 'vue-meta';
+
 import 'normalize.css';
 import '@/assets/styles/global.scss';
 
@@ -17,6 +19,7 @@ const app = createApp(App);
 // Use Axios instance as a Vue prototype
 app.config.globalProperties.$axios = strapiApi;
 
+// app.use(VueMeta);
 app.use(router);
 app.use(store);
 app.use(
