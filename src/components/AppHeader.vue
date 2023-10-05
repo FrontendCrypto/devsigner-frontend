@@ -4,15 +4,6 @@
       <router-link to="/" class="header-title">
         <img src="@/assets/devsigner.svg" />
       </router-link>
-      <div class="nav-content">
-        <!-- <span>Portfolio (WIP)</span> -->
-        <router-link
-          to="/blog"
-          tag="button"
-          class="button button--primary button--medium"
-          >Cuaderno de bitácora</router-link
-        >
-      </div>
     </nav>
   </div>
 </template>
@@ -26,6 +17,17 @@ export default {
 <styles scoped lang="scss">
 @import '@/assets/styles/variables.scss';
 
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  // background-color: $surface1;
+  margin-bottom: 24px;
+  padding: 16px 24px;
+  width: 100%;
+  gap: 24px;
+}
 .nav-link {
   text-decoration: none;
   color: $contentOnSurface;
@@ -49,47 +51,6 @@ export default {
   img {
     width: 100%;
     aspect-ratio: 1;
-  }
-}
-.app-header {
-  background-color: $surface1;
-  padding: 24px;
-  border-radius: 16px;
-}
-
-.content {
-  display: flex;
-  justify-content: space-between;
-}
-
-.navigation {
-  display: flex;
-  gap: 16px;
-}
-
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: row;
-  background-color: $surface1;
-  margin-bottom: 24px;
-  padding: 16px 24px;
-  width: 100%;
-  gap: 24px;
-  .nav-content {
-    flex-direction: row;
-    display: flex;
-    gap: 16px;
-    align-items: center;
-  }
-
-  @media (width > 576px) {
-    flex-direction: row;
-    .nav-content {
-      flex-direction: row;
-      align-items: center;
-    }
   }
 }
 </styles>
