@@ -2,7 +2,7 @@
   <div class="container">
     <nav class="br-8">
       <router-link to="/" class="header-title">
-        <img src="@/assets/devsigner.svg" />
+        <img src="@/assets/images/devsigner.svg" />
       </router-link>
     </nav>
   </div>
@@ -34,7 +34,7 @@ nav {
   text-decoration: none;
 }
 .header-title {
-  font-family: 'Koulen', sans-serif;
+  font-family: 'Koulen';
   line-height: 1;
   font-size: 30px;
   color: $contentOnSurface;

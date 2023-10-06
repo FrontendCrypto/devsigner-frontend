@@ -23,7 +23,6 @@ const actions = {
         `${import.meta.env.VITE_APP_STRAPI_API_URL}/api/articles?populate=*`
       );
       const articles = response.data.data;
-
       commit('SET_ARTICLES', articles);
       commit('SET_LOADING', false);
     } catch (error) {
