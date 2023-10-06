@@ -4,6 +4,10 @@ import router from './router';
 import { createGtm } from '@gtm-support/vue-gtm';
 import store from './store';
 import axios from 'axios';
+import Unicon from 'vue-unicons';
+import { uniRepeat, uniPlusCircle, uniMinusCircle } from 'vue-unicons/dist/icons';
+
+Unicon.add([uniRepeat, uniPlusCirclem, uniMinusCircle]);
 // import VueMeta from 'vue-meta';
 
 import 'normalize.css';
@@ -22,6 +26,10 @@ app.config.globalProperties.$axios = strapiApi;
 // app.use(VueMeta);
 app.use(router);
 app.use(store);
+app.use(Unicon, {
+  height: 48,
+  width: 48,
+});
 app.use(
   // https://www.npmjs.com/package/@gtm-support/vue-gtm
 
