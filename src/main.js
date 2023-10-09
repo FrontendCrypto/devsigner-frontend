@@ -7,7 +7,7 @@ import axios from 'axios';
 import Unicon from 'vue-unicons';
 import { uniRepeat, uniPlusCircle, uniMinusCircle } from 'vue-unicons/dist/icons';
 
-Unicon.add([uniRepeat, uniPlusCirclem, uniMinusCircle]);
+Unicon.add([uniRepeat, uniPlusCircle, uniMinusCircle]);
 // import VueMeta from 'vue-meta';
 
 import 'normalize.css';
