@@ -14,7 +14,7 @@
         </div>
         <div class="card-image">
           <img
-            loading="lazzy"
+            loading="lazy"
             :src="getImageUrl(article.attributes.image.data.attributes.url)"
           />
         </div>
@@ -25,7 +25,7 @@
             </span>
             <h4 class="card-title">{{ article.attributes.title }}</h4>
             <p>
-              {{ getTruncateDescription(article.attributes.description) }}
+              {{ getTruncatedDescription(article.attributes.description) }}
             </p>
           </div>
           <div class="article-categories">
@@ -51,7 +51,7 @@
 </template>
 
 <script>
-import { mapState, mapGetters, mapActions } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 
 export default {
   name: 'Articles',
@@ -78,13 +78,14 @@ export default {
   },
   computed: {
     ...mapState('articles', ['articles', 'loading']),
-    ...mapGetters('articles', [
-      'getFormattedDate',
-      'getTruncateDescription',
-      'getImageUrl',
-    ]),
+    getTruncatedDescription() {
+      return this.$store.getters.getTruncatedDescription;
+    },
     getImageUrl() {
       return this.$store.getters.getImageUrl;
+    },
+    getFormattedDate() {
+      return this.$store.getters.getFormattedDate;
     },
   },
   methods: {

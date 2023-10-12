@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
-
+import { defineAsyncComponent } from 'vue';
 const routes = [
   {
     path: '/',
@@ -7,27 +7,26 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(
-        /* webpackChunkName: "homepageView" */ '../views/HomepageView.vue'
-      ),
+    component: () => import('../views/HomepageView.vue'),
   },
   {
     path: '/blog',
     name: 'blog',
-    component: () =>
-      import(/* webpackChunkName: "blogView" */ '../views/BlogView.vue'),
+    component: () => import('../views/BlogView.vue'),
   },
   {
     path: '/article/:id',
-    component: () =>
-      import(/* webpackChunkName: "articleView" */ '../views/ArticleView.vue'),
+    component: () => import('../views/ArticleView.vue'),
     name: 'article',
   },
   {
+    path: '/portfolio/:id',
+    component: () => import('../views/PortfolioView.vue'),
+    name: 'portfolio',
+  },
+  {
     path: '/gallery/:id',
-    component: () =>
-      import(/* webpackChunkName: "galleryView" */ '../views/GalleryView.vue'),
+    component: () => import('../views/GalleryView.vue'),
     name: 'gallery',
   },
 ];

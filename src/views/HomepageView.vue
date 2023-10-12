@@ -26,14 +26,19 @@
       />
     </div>
   </header>
+  <Portfolio />
   <section class="section section-articles">
     <div class="container">
       <div class="content">
         <div v-if="homepage && homepage.attributes" class="section-header">
-          <div class="section-title">{{ homepage.attributes.blog.title1 }}</div>
-          <div class="section-subtitle">
-            {{ homepage.attributes.blog.title2 }}
-          </div>
+          <h3>
+            <span class="section-title">{{
+              homepage.attributes.blog.title1
+            }}</span>
+            <span class="section-subtitle">
+              {{ homepage.attributes.blog.title2 }}
+            </span>
+          </h3>
           <p>{{ homepage.attributes.blog.subtitle }}</p>
         </div>
         <Articles list-type="grid" :limit="5" />
@@ -73,24 +78,25 @@
 
 <script>
 import { mapState, mapGetters, mapActions } from 'vuex';
+import { defineAsyncComponent } from 'vue';
 import Articles from '@/containers/Articles.vue';
 import Skills from '@/containers/Skills.vue';
-import Gallery from '@/containers/Gallery.vue';
-import Features from '@/containers/Features.vue';
-import Affiliates from '@/containers/Affiliates.vue';
+import Portfolio from '@/containers/Portfolio.vue';
 
 export default {
   name: 'HomeView',
   components: {
     Articles,
-    Skills,
-    Gallery,
-    Features,
-    Affiliates,
+    Skills: defineAsyncComponent(() => import('@/containers/Skills.vue')),
+    Gallery: defineAsyncComponent(() => import('@/containers/Gallery.vue')),
+    Features: defineAsyncComponent(() => import('@/containers/Features.vue')),
+    Affiliates: defineAsyncComponent(() =>
+      import('@/containers/Affiliates.vue')
+    ),
+    Portfolio: defineAsyncComponent(() => import('@/containers/Portfolio.vue')),
   },
   computed: {
     ...mapState('homepage', ['homepage', 'loading']),
-    // ...mapGetters('homepage', ['getImageUrl']),
     getImageUrl() {
       return this.$store.getters.getImageUrl;
     },

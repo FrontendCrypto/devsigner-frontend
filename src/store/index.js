@@ -5,6 +5,7 @@ import skillsModule from './modules/skills';
 import featuresModule from './modules/features';
 import galleryModule from './modules/gallery';
 import affiliatesModule from './modules/affiliates';
+import portfolioModule from './modules/portfolio'
 import * as getters from './getters';
 
 export default createStore({
@@ -16,5 +17,6 @@ export default createStore({
     features: featuresModule,
     gallery: galleryModule,
     affiliates: affiliatesModule,
+    portfolio: portfolioModule,
   },
 });
