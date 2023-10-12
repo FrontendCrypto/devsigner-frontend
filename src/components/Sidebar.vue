@@ -103,7 +103,7 @@ export default {
   width: 100%;
 
   h4 {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', Arial, sans-serif;
     font-size: 20px;
     font-weight: 600;
     margin-bottom: 24px;

@@ -1,32 +1,29 @@
 @import '@/assets/styles/variables.scss';
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Koulen&display=swap');
-// * {
-//   border: 3px solid red;
-// }
 
-// @font-face {
-//   font-family: 'Inter', sans-serif;
-//   font-style: normal;
-//   font-weight: 400;
-//   font-display: swap;
-//   src: url('@assets/fonts/Inter/Inter-Regular.ttf') format('ttf');
-// }
+.wf-loading * {
+  opacity: 0;
+}
 
-// @font-face {
-//   font-family: 'Inter';
-//   font-style: normal;
-//   font-weight: 600;
-//   font-display: swap;
-//   src: url('@assets/fonts/Inter/Inter-SemiBOld.ttf') format('ttf');
-// }
+.wf-loading {
+  height: 100%;
+  overflow: hidden;
+}
 
-// @font-face {
-//   font-family: 'Koulen', sans-serif;
-//   font-style: normal;
-//   font-weight: 400;
-//   font-display: swap;
-//   src: url('@assets/fonts/Koulen/Koulen-Regular.ttf') format('ttf');
-// }
+.wf-active *,
+.wf-inactive * {
+  transition: opacity 1s ease-out;
+}
+
+#app {
+  padding: 32px 0;
+  color: $contentOnPrimary;
+}
+
+body {
+  background-color: $background;
+  font-family: 'Inter', Arial, sans-serif;
+  font-weight: 400;
+}
 
 *,
 *::before,
@@ -72,7 +69,7 @@
     margin-bottom: 8px;
   }
   .card-title {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', Arial, sans-serif;
     font-size: 20px;
     font-weight: 600;
   }
@@ -208,7 +205,7 @@
 .section-title,
 .section-subtitle {
   font-size: 40px;
-  font-family: Koulen;
+  font-family: Koulen, Arial, sans-serif;
   font-weight: 400;
   line-height: 1;
   width: 100%;
@@ -319,7 +316,7 @@
 
 h1,
 h3 {
-  font-family: 'Koulen';
+  font-family: Koulen, Arial, sans-serif;
   line-height: 1;
   margin: 0;
 }
@@ -389,25 +386,6 @@ p {
       height: auto;
     }
   }
-}
-
-#app {
-  padding: 32px 0;
-  font-family: 'Inter', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #ffffff;
-  font-weight: 400;
-}
-
-// html,
-// body,
-// #app {
-//   height: 100%;
-// }
-
-body {
-  background-color: $background;
 }
 
 .blog-entry {

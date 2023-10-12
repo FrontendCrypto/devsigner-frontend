@@ -4,8 +4,11 @@
       <div v-if="hasArticleData" class="content">
         <article class="article">
           <div id="editor" class="editor" v-html="parsedContent"></div>
-          <hr class="separator">
-          <p class="published-at">Publicado el {{ article.attributes.publishedAt }} por Pablo Carballeda</p>
+          <hr class="separator" />
+          <p class="published-at">
+            Publicado el {{ article.attributes.publishedAt }} por Pablo
+            Carballeda
+          </p>
         </article>
         <Articles list-type="list" :limit="5" />
       </div>
@@ -17,6 +20,7 @@
 import axios from 'axios';
 import Articles from '@/containers/Articles.vue';
 import MarkdownIt from 'markdown-it';
+import WebFontLoader from 'webfontloader';
 
 export default {
   name: 'ArticleView',
@@ -40,6 +44,12 @@ export default {
     },
   },
   mounted() {
+    WebFontLoader.load({
+      google: {
+        families: ['Lora:400,600'],
+      },
+    });
+
     const articleId = this.$route.params.id;
     const apiUrl = `${this.baseUrl}/api/articles/${articleId}?populate=*`;
 
