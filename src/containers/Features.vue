@@ -36,25 +36,32 @@
             </p>
           </div>
           <div class="features">
-            <div v-for="(feature, index) in filteredDesignFeatures" :key="index"
-              :class="['feature', feature.expanded ? 'active' : '']" @click="
+            <div
+              v-for="(feature, index) in filteredDesignFeatures"
+              :key="index"
+              :class="['feature', feature.expanded ? 'active' : '']"
+              @click="
                 TOGGLE_DESCRIPTION({ section: 'design', index }),
-                onClick(feature.attributes.title)
-                ">
+                  onClick(feature.attributes.title)
+              "
+            >
               <div class="feature-content">
                 <h4 class="feature-title">{{ feature.attributes.title }}</h4>
                 <div class="expander-button">
                   <button>
                     <div :class="{ 'rotate-180': feature.expanded }">
-                      <svg v-if="feature.expanded" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
-                        viewBox="0 -960 960 960">
-                        <path
-                          d="M440-280h80v-160h160v-80H520v-160h-80v160H280v80h160v160Zm40 200q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z" />
-                      </svg>
-                      <svg v-else xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 -960 960 960">
-                        <path
-                          d="M280-440h400v-80H280v80ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z" />
-                      </svg>
+                      <unicon
+                        v-if="feature.expanded"
+                        class="icon"
+                        name="minus-circle"
+                        fill="#1b1b1b"
+                      ></unicon>
+                      <unicon
+                        v-else
+                        class="icon"
+                        name="plus-circle"
+                        fill="#1b1b1b"
+                      ></unicon>
                     </div>
                   </button>
                 </div>
@@ -71,7 +78,12 @@
 
   <section class="section section-banner">
     <div class="banner">
-      <img loading="lazy" class="banner__image br-16 position-absolute" src="@/assets/middle.png" alt="" />
+      <img
+        loading="lazy"
+        class="banner__image br-16 position-absolute"
+        src="@/assets/images/homepage/banner-section-image.avif"
+        alt=""
+      />
     </div>
   </section>
 
@@ -110,16 +122,29 @@
           </div>
 
           <div class="features">
-            <div v-for="(feature, index) in filteredDevelopFeatures" :key="index"
+            <div
+              v-for="(feature, index) in filteredDevelopFeatures"
+              :key="index"
               :class="['feature', feature.expanded ? 'active' : '']"
-              @click="TOGGLE_DESCRIPTION({ section: 'develop', index })">
+              @click="TOGGLE_DESCRIPTION({ section: 'develop', index })"
+            >
               <div class="feature-content">
                 <h4 class="feature-title">{{ feature.attributes.title }}</h4>
                 <div class="expander-button">
                   <button>
                     <div :class="{ 'rotate-180': feature.expanded }">
-                      <unicon v-if="feature.expanded" name="plus-circle"></unicon>
-                      <unicon v-else name="plus-circle"></unicon>
+                      <unicon
+                        v-if="feature.expanded"
+                        class="icon"
+                        name="minus-circle"
+                        fill="#f9e9cb"
+                      ></unicon>
+                      <unicon
+                        v-else
+                        class="icon"
+                        name="plus-circle"
+                        fill="#f9e9cb"
+                      ></unicon>
                     </div>
                   </button>
                 </div>
@@ -208,7 +233,7 @@ export default {
     }
   }
 
-  &--product {
+  &--develop {
     background-color: $backgroundTertiary;
 
     .section-title {
@@ -244,10 +269,8 @@ export default {
         }
       }
 
-      button {
-        svg {
-          fill: $tertiary;
-        }
+      .icon {
+        fill: $tertiary;
       }
     }
 
@@ -257,7 +280,7 @@ export default {
     }
   }
 
-  &--develop {
+  &--product {
     background-color: $background;
 
     .section-title {
@@ -293,10 +316,8 @@ export default {
         }
       }
 
-      button {
-        svg {
-          fill: $contentOnTertiary;
-        }
+      .icon {
+        fill: $contentOnTertiary;
       }
     }
 

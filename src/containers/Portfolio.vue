@@ -1,34 +1,26 @@
 <template>
-  <section class="section section-portfolio">
-    <div class="container">
-      <div class="content">
-        <div class="portfolio">
-          <div class="cards-wrapper-3">
-            <router-link
-              :to="{ name: 'portfolio', params: { id: portfolio.id } }"
-              class="portfolio-item card"
-              v-for="(portfolio, index) in portfolio"
-              :key="portfolio.id"
-            >
-              <div class="card-image-wrapper">
-                <img
-                  loading="lazy"
-                  class="card-image"
-                  :src="
-                    getImageUrl(portfolio.attributes.image.data.attributes.url)
-                  "
-                />
-              </div>
-              <div class="card-content">
-                <h4 class="card-title">{{ portfolio.attributes.title }}</h4>
-                <p>{{ portfolio.attributes.description }}</p>
-              </div>
-            </router-link>
-          </div>
+  <div class="portfolio">
+    <div class="cards-wrapper-3">
+      <router-link
+        :to="{ name: 'portfolio', params: { id: portfolio.id } }"
+        class="portfolio-item card"
+        v-for="(portfolio, index) in portfolio"
+        :key="portfolio.id"
+      >
+        <div class="card-image-wrapper">
+          <img
+            loading="lazy"
+            class="card-image"
+            :src="getImageUrl(portfolio.attributes.image.data.attributes.url)"
+          />
         </div>
-      </div>
+        <div class="card-content">
+          <h4 class="card-title">{{ portfolio.attributes.title }}</h4>
+          <p>{{ portfolio.attributes.description }}</p>
+        </div>
+      </router-link>
     </div>
-  </section>
+  </div>
 </template>
 
 <script>
@@ -60,6 +52,8 @@ export default {
 }
 .card-image-wrapper {
   aspect-ratio: 16/9;
+  width: 100%;
+
   img {
     object-fit: cover;
     object-position: center;

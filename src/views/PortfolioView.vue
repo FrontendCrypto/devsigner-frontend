@@ -1,8 +1,8 @@
 <template>
   <div class="blog-entry">
-    <div class="container portfolio-container">
+    <div class="container article-container">
       <div v-if="hasPortfolioData" class="content">
-        <article class="portfolio">
+        <article class="article">
           <div id="editor" class="editor" v-html="parsedContent"></div>
           <div class="gallery">
             <div
