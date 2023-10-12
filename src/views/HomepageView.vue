@@ -1,28 +1,38 @@
 <template>
   <header class="header">
     <div class="header__content">
-      <img loading="eager" alt="Vue logo" src="@/assets/header-logo.svg" />
-      <div v-if="loading">Loading@.</div>
-      <div v-else>
-        <p v-if="homepage && homepage.attributes" class="text-body">
-          {{ homepage.attributes.hero.title }}
-        </p>
-      </div>
+      <img
+        loading="eager"
+        alt="Devsigner text logo"
+        src="@/assets/header-logo.svg"
+        width="176"
+        height="117"
+        fetchpriority="high"
+      />
+      <p v-if="homepage.attributes" class="text-body">
+        {{ homepage.attributes.hero.title }}
+      </p>
     </div>
     <div>
       <img
         class="header-image header-image--left"
-        v-if="homepage && homepage.attributes"
+        v-if="homepage.attributes"
+        fetchpriority="high"
         :alt="homepage.attributes.imageleft.data.attributes.alternativeText"
         :src="getImageUrl(homepage.attributes.imageleft.data.attributes.url)"
+        width="932"
+        height="640"
       />
     </div>
     <div>
       <img
         class="header-image header-image--right"
-        v-if="homepage && homepage.attributes"
+        v-if="homepage.attributes"
+        fetchpriority="high"
         :alt="homepage.attributes.imageleft.data.attributes.alternativeText"
         :src="getImageUrl(homepage.attributes.imageright.data.attributes.url)"
+        width="932"
+        height="640"
       />
     </div>
   </header>
@@ -32,7 +42,7 @@
   <section class="section section-portfolio">
     <div class="container">
       <div class="content">
-        <div v-if="homepage && homepage.attributes" class="section-header">
+        <div v-if="homepage.attributes" class="section-header">
           <h3>
             <span class="section-title">{{
               homepage.attributes.portfolio.title
@@ -47,7 +57,7 @@
   <section class="section section-articles">
     <div class="container">
       <div class="content">
-        <div v-if="homepage && homepage.attributes" class="section-header">
+        <div v-if="homepage.attributes" class="section-header">
           <h3>
             <span class="section-title">{{
               homepage.attributes.blog.title1
@@ -64,7 +74,7 @@
   </section>
 
   <section class="section section-banner">
-    <div class="banner" v-if="homepage && homepage.attributes">
+    <div class="banner" v-if="homepage.attributes">
       <div class="banner__content banner__content">
         <div>
           <h3>{{ homepage.attributes.github.title }}</h3>
@@ -83,6 +93,8 @@
         class="banner__image position-absolute"
         src="@/assets/images/homepage/github-banner-section-image.avif"
         alt="GitHub banner image"
+        width="1864"
+        height="300"
       />
     </div>
   </section>

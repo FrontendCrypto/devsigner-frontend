@@ -12,6 +12,8 @@
               <img
                 class="gallery-item-image"
                 :src="getImageUrl(image.attributes.url)"
+                width="373"
+                height="208"
               />
             </div>
           </div>
@@ -69,7 +71,7 @@ export default {
       .then((response) => {
         this.portfolio = response.data.data;
         this.$gtm.trackView(
-          `Artículo - ${this.portfolio.attributes.title}`,
+          `Portfolio - ${this.portfolio.attributes.title}`,
           'currentPath'
         );
         this.parsedContent = this.md.render(this.portfolio.attributes.content);

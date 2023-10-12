@@ -22,6 +22,8 @@
                   getImageUrl(affiliate.attributes.image.data.attributes.url)
                 "
                 :alt="affiliate.attributes.image.data.attributes.alternativeText"
+                width="373"
+                height="168"
               />
             </div>
             <div class="card-content">

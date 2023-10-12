@@ -83,6 +83,8 @@
         class="banner__image br-16 position-absolute"
         src="@/assets/images/homepage/banner-section-image.avif"
         alt="Section banner image"
+        width="1864"
+        height="300"
       />
     </div>
   </section>

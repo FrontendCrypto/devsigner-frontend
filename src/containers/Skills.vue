@@ -20,6 +20,8 @@
                 getImageUrl(skill.attributes.skill_logo.data.attributes.url)
               "
               :alt="skill.attributes.skill_logo.data.attributes.alternativeText"
+              width="56"
+              height="56"
             />
           </div>
         </div>

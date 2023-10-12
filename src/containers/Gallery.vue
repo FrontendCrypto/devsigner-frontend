@@ -61,6 +61,8 @@
                         item.attributes.image_thumbail.data.attributes.url
                       )
                     "
+                    wisth="256"
+                    height="256"
                   />
                   <div class="gallery-item-overlay">
                     <h3>{{ item.attributes.title }}</h3>
