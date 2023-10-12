@@ -26,7 +26,24 @@
       />
     </div>
   </header>
-  <Portfolio />
+
+  <Features />
+
+  <section class="section section-portfolio">
+    <div class="container">
+      <div class="content">
+        <div v-if="homepage && homepage.attributes" class="section-header">
+          <h3>
+            <span class="section-title">{{
+              homepage.attributes.portfolio.title
+            }}</span>
+          </h3>
+        </div>
+        <Portfolio />
+      </div>
+    </div>
+  </section>
+
   <section class="section section-articles">
     <div class="container">
       <div class="content">
@@ -46,27 +63,25 @@
     </div>
   </section>
 
-  <Features />
-
   <section class="section section-banner">
-    <div class="banner">
+    <div class="banner" v-if="homepage && homepage.attributes">
       <div class="banner__content banner__content">
         <div>
-          <h3>Encuentrame en GitHub</h3>
-          <p>@frontendcrypto</p>
+          <h3>{{ homepage.attributes.github.title }}</h3>
+          <p>{{ homepage.attributes.github.subtitle }}</p>
         </div>
         <a
-          href="https://github.com/FrontendCrypto"
+          :href="homepage.attributes.github.buttonUrl"
           target="_blank"
           class="button button--primary button--medium"
         >
-          Echa un vistazo
+          {{ homepage.attributes.github.buttonText }}
         </a>
       </div>
       <img
         loading="lazy"
         class="banner__image position-absolute"
-        src="@/assets/cat.png"
+        src="@/assets/images/homepage/github-banner-section-image.avif"
         alt=""
       />
     </div>

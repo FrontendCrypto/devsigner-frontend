@@ -27,8 +27,8 @@ app.config.globalProperties.$axios = strapiApi;
 app.use(router);
 app.use(store);
 app.use(Unicon, {
-  height: 48,
-  width: 48,
+  height: 40,
+  width: 40,
 });
 app.use(
   // https://www.npmjs.com/package/@gtm-support/vue-gtm
