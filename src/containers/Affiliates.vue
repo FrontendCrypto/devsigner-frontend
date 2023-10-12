@@ -1,9 +1,20 @@
 <template>
-  <section class="section section-articles">
+  <section
+    class="section section-articles"
+    role="region"
+    aria-labelledby="section-heading"
+  >
     <div class="container">
       <div class="content">
         <div class="section-header">
-          <div class="section-title">Webs</div>
+          <div
+            class="section-title"
+            id="section-heading"
+            role="heading"
+            aria-level="2"
+          >
+            Webs
+          </div>
           <div class="section-subtitle">amigas</div>
           <p>
             Sí, estos son enlaces de afiliado, hay que rascar de donde se pueda.
@@ -21,7 +32,7 @@
                 :src="
                   getImageUrl(affiliate.attributes.image.data.attributes.url)
                 "
-                :alt="affiliate.attributes.image.data.attributes.alternativeText"
+                :alt="affiliate.attributes.title + ' Logo'"
                 width="373"
                 height="168"
               />
@@ -35,6 +46,7 @@
                   @click="onClick(affiliate.attributes.title)"
                   :href="affiliate.attributes.url"
                   target="_blank"
+                  role="link"
                 >
                   {{ affiliate.attributes.button }}
                 </a>
@@ -46,6 +58,7 @@
     </div>
   </section>
 </template>
+
 <script>
 import { mapState, mapGetters, mapActions } from 'vuex';
 

@@ -1,13 +1,15 @@
 <template>
-  <div class="articles">
+  <div class="articles" role="region" aria-live="polite">
     <div v-if="loading">Loading...</div>
     <div v-else :class="['cards-wrapper-3', this.listClass]">
       <router-link
-        @click="onClick(article.attributes.title)"
-        :to="{ name: 'article', params: { id: article.id } }"
-        class="article card"
         v-for="(article, index) in articles.slice(0, this.limit)"
         :key="article.id"
+        :to="{ name: 'article', params: { id: article.id } }"
+        class="article card"
+        tag="div"
+        role="link"
+        tabindex="0"
       >
         <div v-if="index === 0" class="article-badge">
           <span>NUEVO</span>
@@ -16,6 +18,7 @@
           <img
             loading="lazy"
             :src="getImageUrl(article.attributes.image.data.attributes.url)"
+            :alt="article.attributes.title + ' Image'"
           />
         </div>
         <div class="card-content">
@@ -43,6 +46,8 @@
         to="/blog"
         class="card article-button"
         v-show="this.showArticleButton"
+        role="link"
+        tabindex="0"
       >
         Ver mas
       </router-link>

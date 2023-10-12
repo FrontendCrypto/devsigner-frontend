@@ -1,11 +1,17 @@
 <template>
-  <div class="portfolio">
-    <div class="cards-wrapper-3">
+  <div
+    class="portfolio"
+    role="region"
+    aria-labelledby="portfolio-section-heading"
+  >
+    <h3 id="portfolio-section-heading">Portafolio</h3>
+    <div class="cards-wrapper-3" role="list">
       <router-link
         :to="{ name: 'portfolio', params: { id: portfolio.id } }"
         class="portfolio-item card"
         v-for="(portfolio, index) in portfolio"
         :key="portfolio.id"
+        role="listitem"
       >
         <div class="card-image-wrapper">
           <img

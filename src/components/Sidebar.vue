@@ -1,8 +1,8 @@
 <template>
-  <aside class="sidebar">
+  <aside class="sidebar" role="complementary" aria-labelledby="sidebar-heading">
     <div class="sidebar-content">
-      <h4 class="title">Otros articulos</h4>
-      <div v-if="loading">Loading...</div>
+      <h4 id="sidebar-heading" class="title">Otros artículos</h4>
+      <div v-if="loading">Cargando...</div>
       <div v-else class="sidebar-articles">
         <div
           v-for="article in sidebarArticles.slice(0, 5)"
@@ -18,12 +18,10 @@
               <span
                 class="article-category"
                 v-if="article.attributes.categories.data.length"
-                v-for="category in article.attributes.categories.data.slice(
-                  0,
-                  2
-                )"
-                >{{ category.attributes.name }}</span
+                v-for="category in article.attributes.categories.data.slice(0, 2)"
               >
+                {{ category.attributes.name }}
+              </span>
               <span v-else class="article-category">Sin categoría</span>
             </div>
           </router-link>
@@ -32,6 +30,7 @@
     </div>
   </aside>
 </template>
+
 
 <script>
 import { mapState, mapActions } from 'vuex';

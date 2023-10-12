@@ -1,10 +1,16 @@
 <template>
-  <section class="section section-features section-features--develop">
+  <section
+    class="section section-features section-features--develop"
+    role="region"
+    aria-labelledby="section-heading"
+  >
     <div class="container">
       <div class="content">
         <div class="section-header">
-          <div class="section-title">MACHINE LEARNING</div>
-          <div class="section-subtitle">HERRAMIENTA Y RETO</div>
+          <h3 id="section-heading">
+            <span class="section-title">MACHINE LEARNING:</span>
+            <span class="section-subtitle">HERRAMIENTA Y RETO</span>
+          </h3>
         </div>
         <div class="section-content">
           <div class="sidebar">
@@ -35,8 +41,13 @@
           </div>
           <div>
             <div class="items-content">
-              <div v-if="loading" class="gallery-items">
-                <div class="gallery-loading-item" v-for="item in 9">
+              <div v-if="loading" class="gallery-items" role="list">
+                <div
+                  class="gallery-loading-item"
+                  v-for="item in 9"
+                  role="listitem"
+                  aria-busy="true"
+                >
                   <div class="lds-ring">
                     <div></div>
                     <div></div>
@@ -45,11 +56,12 @@
                   </div>
                 </div>
               </div>
-              <div class="gallery-items" v-else>
+              <div class="gallery-items" v-else role="list">
                 <div
                   class="gallery-item"
                   v-for="item in gallery"
                   :key="item.id"
+                  role="listitem"
                 >
                   <img
                     loading="lazy"
@@ -61,14 +73,17 @@
                         item.attributes.image_thumbail.data.attributes.url
                       )
                     "
-                    wisth="256"
+                    width="256"
                     height="256"
+                    aria-labelledby="gallery-item-title"
                   />
                   <div class="gallery-item-overlay">
-                    <h3>{{ item.attributes.title }}</h3>
+                    <h3 id="gallery-item-title">{{ item.attributes.title }}</h3>
                     <router-link
                       class="gallery-item-link"
                       :to="{ name: 'gallery', params: { id: item.id } }"
+                      tabindex="0"
+                      role="link"
                     />
                   </div>
                 </div>
@@ -142,7 +157,7 @@ export default {
 .gallery-item {
   position: relative;
   user-select: none;
-  
+
   &:hover {
     .gallery-item-overlay {
       opacity: 1;

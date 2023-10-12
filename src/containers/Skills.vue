@@ -1,9 +1,16 @@
 <template>
-  <section class="section section-skills">
+  <section
+    class="section section-skills"
+    role="region"
+    aria-labelledby="skills-section-heading"
+  >
     <div class="custom-container">
       <div class="skills-column">
-        <h3>Design</h3>
-        <div class="skills-column__content">
+        <h3 id="design-skills-heading">Design</h3>
+        <div
+          class="skills-column__content"
+          aria-labelledby="design-skills-heading"
+        >
           <div
             class="skill-card"
             v-for="skill in filteredSkills('design')"
@@ -27,10 +34,13 @@
         </div>
       </div>
       <div class="skills-column">
-        <div class="skills-title--icon">
-          <unicon name="repeat"></unicon>
+        <div class="skills-title--icon" aria-label="Bridge Skills">
+          <unicon name="repeat" aria-hidden="true"></unicon>
         </div>
-        <div class="skills-column__content">
+        <div
+          class="skills-column__content"
+          aria-labelledby="bridge-skills-heading"
+        >
           <div
             class="skill-card"
             v-for="skill in filteredSkills('bridge')"
@@ -52,8 +62,11 @@
         </div>
       </div>
       <div class="skills-column">
-        <h3>Develop</h3>
-        <div class="skills-column__content">
+        <h3 id="develop-skills-heading">Develop</h3>
+        <div
+          class="skills-column__content"
+          aria-labelledby="develop-skills-heading"
+        >
           <div
             class="skill-card"
             v-for="skill in filteredSkills('develop')"

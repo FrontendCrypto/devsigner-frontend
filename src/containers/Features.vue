@@ -1,10 +1,16 @@
 <template>
-  <section class="section section-features section-features--product">
+  <section
+    class="section section-features section-features--product"
+    role="region"
+    aria-labelledby="product-section-heading"
+  >
     <div class="container">
       <div class="content">
         <div class="section-header">
-          <div class="section-title">CARA A:</div>
-          <div class="section-subtitle">PRODUCT MINDSET</div>
+          <h3 id="product-section-heading">
+            <span class="section-title">CARA A:</span>
+            <span class="section-subtitle">PRODUCT MINDSET</span>
+          </h3>
         </div>
         <div class="section-content">
           <div class="section-sidebar">
@@ -48,7 +54,7 @@
               <div class="feature-content">
                 <h4 class="feature-title">{{ feature.attributes.title }}</h4>
                 <div class="expander-button">
-                  <button>
+                  <button role="button" tabindex="0">
                     <div :class="{ 'rotate-180': feature.expanded }">
                       <unicon
                         v-if="feature.expanded"
@@ -89,12 +95,18 @@
     </div>
   </section>
 
-  <section class="section section-features section-features--develop">
+  <section
+    class="section section-features section-features--develop"
+    role="region"
+    aria-labelledby="develop-section-heading"
+  >
     <div class="container">
       <div class="content">
         <div class="section-header">
-          <div class="section-title">CARA B:</div>
-          <div class="section-subtitle">DEVELOPER SKILLS</div>
+          <h3 id="product-section-heading">
+            <span class="section-title">CARA B:</span>
+            <span class="section-subtitle">DEVELOPER SKILLS</span>
+          </h3>
         </div>
         <div class="section-content">
           <div class="section-sidebar">
@@ -133,7 +145,7 @@
               <div class="feature-content">
                 <h4 class="feature-title">{{ feature.attributes.title }}</h4>
                 <div class="expander-button">
-                  <button>
+                  <button role="button" tabindex="0">
                     <div :class="{ 'rotate-180': feature.expanded }">
                       <unicon
                         v-if="feature.expanded"

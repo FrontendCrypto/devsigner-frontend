@@ -204,8 +204,9 @@ body {
 
 .section-title,
 .section-subtitle {
+  display: block;
   font-size: 40px;
-  font-family: Koulen, Arial, sans-serif;
+  font-family: 'Koulen', Arial, sans-serif;
   font-weight: 400;
   line-height: 1;
   width: 100%;
@@ -307,11 +308,6 @@ body {
 .px-64 {
   padding-left: 64px;
   padding-right: 64px;
-}
-
-.section-title {
-  display: flex;
-  flex-direction: column;
 }
 
 h1,
