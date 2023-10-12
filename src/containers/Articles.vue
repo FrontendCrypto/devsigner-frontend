@@ -149,7 +149,7 @@ export default {
   color: $contentOnPrimary;
   text-decoration: none;
   font-size: 32px;
-  font-family: Koulen;
+  font-family: Koulen, Arial, sans-serif;
   font-weight: 400;
   line-height: 1;
   display: flex;

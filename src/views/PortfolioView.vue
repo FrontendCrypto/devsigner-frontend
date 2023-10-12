@@ -29,6 +29,7 @@
 <script>
 import axios from 'axios';
 import MarkdownIt from 'markdown-it';
+import WebFontLoader from 'webfontloader';
 
 export default {
   name: 'PortfolioView',
@@ -54,6 +55,12 @@ export default {
     },
   },
   mounted() {
+    WebFontLoader.load({
+      google: {
+        families: ['Lora:400,600'],
+      },
+    });
+
     const portfolioId = this.$route.params.id;
     const apiUrl = `${this.baseUrl}/api/portfolios/${portfolioId}?populate=*`;
 
