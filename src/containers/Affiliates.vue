@@ -32,7 +32,7 @@
                 :src="
                   getImageUrl(affiliate.attributes.image.data.attributes.url)
                 "
-                :alt="affiliate.attributes.title + ' Logo'"
+                :alt="affiliate.attributes.title + ' logo'"
                 width="373"
                 height="168"
               />

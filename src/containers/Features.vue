@@ -103,7 +103,7 @@
     <div class="container">
       <div class="content">
         <div class="section-header">
-          <h3 id="product-section-heading">
+          <h3 id="develop-section-heading">
             <span class="section-title">CARA B:</span>
             <span class="section-subtitle">DEVELOPER SKILLS</span>
           </h3>
