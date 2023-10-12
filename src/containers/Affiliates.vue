@@ -21,6 +21,7 @@
                 :src="
                   getImageUrl(affiliate.attributes.image.data.attributes.url)
                 "
+                :alt="affiliate.attributes.image.data.attributes.alternativeText"
               />
             </div>
             <div class="card-content">

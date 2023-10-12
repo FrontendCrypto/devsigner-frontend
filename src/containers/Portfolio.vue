@@ -12,6 +12,7 @@
             loading="lazy"
             class="card-image"
             :src="getImageUrl(portfolio.attributes.image.data.attributes.url)"
+            :alt="portfolio.attributes.image.data.attributes.alternativeText"
           />
         </div>
         <div class="card-content">

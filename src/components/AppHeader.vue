@@ -2,7 +2,7 @@
   <div class="container">
     <nav class="br-8">
       <router-link to="/" class="header-title">
-        <img src="@/assets/images/devsigner.svg" />
+        <img src="@/assets/images/devsigner.svg" alt="Devsigner logo" />
       </router-link>
     </nav>
   </div>

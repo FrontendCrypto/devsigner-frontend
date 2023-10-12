@@ -4,13 +4,23 @@
       <div class="skills-column">
         <h3>Design</h3>
         <div class="skills-column__content">
-          <div class="skill-card" v-for="skill in filteredSkills('design')" :key="skill.id">
+          <div
+            class="skill-card"
+            v-for="skill in filteredSkills('design')"
+            :key="skill.id"
+          >
             <div class="skill-card__content">
               <b>{{ skill.attributes.title }}</b>
               <p>{{ skill.attributes.description }}</p>
             </div>
-            <img loading="lazy" class="skill-card__image" :src="getImageUrl(skill.attributes.skill_logo.data.attributes.url)
-              " />
+            <img
+              loading="lazy"
+              class="skill-card__image"
+              :src="
+                getImageUrl(skill.attributes.skill_logo.data.attributes.url)
+              "
+              :alt="skill.attributes.skill_logo.data.attributes.alternativeText"
+            />
           </div>
         </div>
       </div>
@@ -19,26 +29,46 @@
           <unicon name="repeat"></unicon>
         </div>
         <div class="skills-column__content">
-          <div class="skill-card" v-for="skill in filteredSkills('bridge')" :key="skill.id">
+          <div
+            class="skill-card"
+            v-for="skill in filteredSkills('bridge')"
+            :key="skill.id"
+          >
             <div class="skill-card__content">
               <b>{{ skill.attributes.title }}</b>
               <p>{{ skill.attributes.description }}</p>
             </div>
-            <img loading="lazy" class="skill-card__image" :src="getImageUrl(skill.attributes.skill_logo.data.attributes.url)
-              " />
+            <img
+              loading="lazy"
+              class="skill-card__image"
+              :src="
+                getImageUrl(skill.attributes.skill_logo.data.attributes.url)
+              "
+              :alt="skill.attributes.skill_logo.data.attributes.alternativeText"
+            />
           </div>
         </div>
       </div>
       <div class="skills-column">
         <h3>Develop</h3>
         <div class="skills-column__content">
-          <div class="skill-card" v-for="skill in filteredSkills('develop')" :key="skill.id">
+          <div
+            class="skill-card"
+            v-for="skill in filteredSkills('develop')"
+            :key="skill.id"
+          >
             <div class="skill-card__content">
               <b>{{ skill.attributes.title }}</b>
               <p>{{ skill.attributes.description }}</p>
             </div>
-            <img loading="lazy" class="skill-card__image" :src="getImageUrl(skill.attributes.skill_logo.data.attributes.url)
-              " />
+            <img
+              loading="lazy"
+              class="skill-card__image"
+              :src="
+                getImageUrl(skill.attributes.skill_logo.data.attributes.url)
+              "
+              :alt="skill.attributes.skill_logo.data.attributes.alternativeText"
+            />
           </div>
         </div>
       </div>

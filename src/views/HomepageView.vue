@@ -82,7 +82,7 @@
         loading="lazy"
         class="banner__image position-absolute"
         src="@/assets/images/homepage/github-banner-section-image.avif"
-        alt=""
+        alt="GitHub banner image"
       />
     </div>
   </section>

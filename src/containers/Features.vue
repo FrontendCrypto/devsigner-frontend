@@ -82,7 +82,7 @@
         loading="lazy"
         class="banner__image br-16 position-absolute"
         src="@/assets/images/homepage/banner-section-image.avif"
-        alt=""
+        alt="Section banner image"
       />
     </div>
   </section>
