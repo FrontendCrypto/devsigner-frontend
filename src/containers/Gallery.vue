@@ -106,7 +106,6 @@ export default {
 .gallery-items {
   display: grid;
   grid-template-columns: 1fr;
-
   gap: 8px;
 
   @media (width >=480px) {

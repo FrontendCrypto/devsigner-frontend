@@ -32,29 +32,9 @@ const actions = {
   },
 };
 
-const getters = {
-  getFormattedDate: (state) => (date) => {
-    const publishedDate = new Date(date);
-    const formattedDate = new Intl.DateTimeFormat('es-ES', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-    }).format(publishedDate);
-    return formattedDate;
-  },
-  getTruncateDescription: (state) => (description) => {
-    if (description && description.length > 140) {
-      return description.slice(0, 140) + '...';
-    } else {
-      return description;
-    }
-  },
-};
-
 export default {
   namespaced: true,
   state,
   mutations,
   actions,
-  getters,
 };

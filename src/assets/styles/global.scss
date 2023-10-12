@@ -1,31 +1,32 @@
 @import '@/assets/styles/variables.scss';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Koulen&display=swap');
 // * {
 //   border: 3px solid red;
 // }
 
-@font-face {
-  font-family: 'Inter', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('@assets/fonts/Inter/Inter-Regular.ttf') format('ttf');
-}
+// @font-face {
+//   font-family: 'Inter', sans-serif;
+//   font-style: normal;
+//   font-weight: 400;
+//   font-display: swap;
+//   src: url('@assets/fonts/Inter/Inter-Regular.ttf') format('ttf');
+// }
 
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url('@assets/fonts/Inter/Inter-SemiBOld.ttf') format('ttf');
-}
+// @font-face {
+//   font-family: 'Inter';
+//   font-style: normal;
+//   font-weight: 600;
+//   font-display: swap;
+//   src: url('@assets/fonts/Inter/Inter-SemiBOld.ttf') format('ttf');
+// }
 
-@font-face {
-  font-family: 'Koulen', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('@assets/fonts/Koulen/Koulen-Regular.ttf') format('ttf');
-}
+// @font-face {
+//   font-family: 'Koulen', sans-serif;
+//   font-style: normal;
+//   font-weight: 400;
+//   font-display: swap;
+//   src: url('@assets/fonts/Koulen/Koulen-Regular.ttf') format('ttf');
+// }
 
 *,
 *::before,
