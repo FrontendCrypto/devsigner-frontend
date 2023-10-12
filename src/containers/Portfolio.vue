@@ -10,26 +10,20 @@
               v-for="(portfolio, index) in portfolio"
               :key="portfolio.id"
             >
-            <div class="card-image-wrapper">
-                <img class="card-image" src="@/assets/left.png" />
+              <div class="card-image-wrapper">
+                <img
+                  loading="lazy"
+                  class="card-image"
+                  :src="
+                    getImageUrl(portfolio.attributes.image.data.attributes.url)
+                  "
+                />
               </div>
               <div class="card-content">
-                <h4 class="card-title">ApexTrader</h4>
-                <p>Interfaz de trading desarrollada con Vue</p>
+                <h4 class="card-title">{{ portfolio.attributes.title }}</h4>
+                <p>{{ portfolio.attributes.description }}</p>
               </div>
             </router-link>
-            <div class="portfolio-item card">
-              <div class="card-image-wrapper">
-                <img class="card-image" src="@/assets/left.png" />
-              </div>
-              <div class="card-content">
-                <h4 class="card-title">Nostros</h4>
-                <p>
-                  Diseño de app para una red social descentralizada sobre el
-                  protocolo nostr y con Lightning Network.
-                </p>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -47,6 +41,9 @@ export default {
   },
   computed: {
     ...mapState('portfolio', ['portfolio', 'loading']),
+    getImageUrl() {
+      return this.$store.getters.getImageUrl;
+    },
   },
   methods: {
     ...mapActions('portfolio', ['fetchPortfolio']),
@@ -55,7 +52,9 @@ export default {
 </script>
 <styles scoped lang="scss">
 @import '@/assets/styles/variables.scss';
-
+.portfolio-item {
+  text-decoration: none;
+}
 .portfolio-item {
   gap: 0;
 }
