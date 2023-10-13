@@ -96,13 +96,13 @@ export default {
   methods: {
     ...mapActions('articles', ['fetchArticles']),
     onClick(eventValue) {
-      this.$gtm.trackEvent({
-        event: 'interaction',
-        category: 'Artículo',
-        action: 'click',
-        label: 'Click en artículo',
-        value: eventValue,
-      });
+      // this.$gtm.trackEvent({
+      //   event: 'interaction',
+      //   category: 'Artículo',
+      //   action: 'click',
+      //   label: 'Click en artículo',
+      //   value: eventValue,
+      // });
     },
   },
 };

@@ -2,15 +2,11 @@ import axios from 'axios';
 
 const state = {
   homepage: [],
-  loading: true,
 };
 
 const mutations = {
   SET_HOMEPAGE(state, homepage) {
     state.homepage = homepage;
-  },
-  SET_LOADING(state, loading) {
-    state.loading = loading;
   },
 };
 
@@ -23,10 +19,10 @@ const actions = {
       const homepage = response.data.data;
 
       commit('SET_HOMEPAGE', homepage);
-      commit('SET_LOADING', false);
+      // commit('SET_LOADING', false);
     } catch (error) {
       console.error('Error fetching homepage:', error);
-      commit('SET_LOADING', true);
+      // commit('SET_LOADING', true);
     }
   },
 };

@@ -74,12 +74,12 @@ export default {
   methods: {
     ...mapActions('affiliates', ['fetchAffiliates']),
     onClick(id) {
-      this.$gtm.trackEvent({
-        category: 'Affiliate',
-        action: 'click',
-        label: 'Affiliate click',
-        value: id,
-      });
+      // this.$gtm.trackEvent({
+      //   category: 'Affiliate',
+      //   action: 'click',
+      //   label: 'Affiliate click',
+      //   value: id,
+      // });
     },
   },
   async mounted() {

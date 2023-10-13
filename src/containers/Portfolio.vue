@@ -1,25 +1,16 @@
 <template>
-  <div
-    class="portfolio"
-    role="region"
-    aria-labelledby="portfolio-section-heading"
-  >
-    <h3 id="portfolio-section-heading">Portafolio</h3>
+  <div class="portfolio" role="region" aria-labelledby="portfolio-section-heading">
+    <div class="section-header">
+      <h3 id="portfolio-section-heading">
+        <span class="section-title">PROYECTOS</span>
+      </h3>
+    </div>
     <div class="cards-wrapper-3" role="list">
-      <router-link
-        :to="{ name: 'portfolio', params: { id: portfolio.id } }"
-        class="portfolio-item card"
-        v-for="(portfolio, index) in portfolio"
-        :key="portfolio.id"
-        role="listitem"
-      >
+      <router-link :to="{ name: 'portfolio', params: { id: portfolio.id } }" class="portfolio-item card"
+        v-for="(portfolio, index) in portfolio" :key="portfolio.id" role="listitem">
         <div class="card-image-wrapper">
-          <img
-            loading="lazy"
-            class="card-image"
-            :src="getImageUrl(portfolio.attributes.image.data.attributes.url)"
-            :alt="portfolio.attributes.image.data.attributes.alternativeText"
-          />
+          <img loading="lazy" class="card-image" :src="getImageUrl(portfolio.attributes.image.data.attributes.url)"
+            :alt="portfolio.attributes.image.data.attributes.alternativeText" />
         </div>
         <div class="card-content">
           <h4 class="card-title">{{ portfolio.attributes.title }}</h4>
@@ -51,12 +42,15 @@ export default {
 </script>
 <styles scoped lang="scss">
 @import '@/assets/styles/variables.scss';
+
 .portfolio-item {
   text-decoration: none;
 }
+
 .portfolio-item {
   gap: 0;
 }
+
 .card-image-wrapper {
   aspect-ratio: 16/9;
   width: 100%;

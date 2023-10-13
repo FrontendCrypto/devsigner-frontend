@@ -190,13 +190,13 @@ export default {
     ...mapActions('features', ['fetchFeatures']),
     ...mapMutations('features', ['TOGGLE_DESCRIPTION']),
     onClick(eventValue) {
-      this.$gtm.trackEvent({
-        event: 'interaction',
-        category: 'Features',
-        action: 'click',
-        label: 'Click en feature',
-        value: eventValue,
-      });
+      // this.$gtm.trackEvent({
+      //   event: 'interaction',
+      //   category: 'Features',
+      //   action: 'click',
+      //   label: 'Click en feature',
+      //   value: eventValue,
+      // });
     },
   },
   mounted() {

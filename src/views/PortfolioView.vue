@@ -70,10 +70,10 @@ export default {
       .get(apiUrl)
       .then((response) => {
         this.portfolio = response.data.data;
-        this.$gtm.trackView(
-          `Portfolio - ${this.portfolio.attributes.title}`,
-          'currentPath'
-        );
+        // this.$gtm.trackView(
+        //   `Portfolio - ${this.portfolio.attributes.title}`,
+        //   'currentPath'
+        // );
         this.parsedContent = this.md.render(this.portfolio.attributes.content);
       })
       .catch((error) => {

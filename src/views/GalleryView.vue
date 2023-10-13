@@ -52,7 +52,7 @@ export default {
       .get(apiUrl)
       .then((response) => {
         this.gallery = response.data.data;
-        this.$gtm.trackView(`Galería - ${this.gallery.attributes.title}`, 'currentPath');
+        // this.$gtm.trackView(`Galería - ${this.gallery.attributes.title}`, 'currentPath');
       })
       .catch((error) => {
         console.error('Error fetching gallery data:', error);

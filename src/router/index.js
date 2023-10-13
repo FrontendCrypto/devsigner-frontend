@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import { defineAsyncComponent } from 'vue';
+import store from '@/store';
+
 const routes = [
   {
     path: '/',
@@ -34,6 +35,21 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes,
+});
+
+router.beforeResolve((to, from, next) => {
+  if (to.name) {
+    store.commit('app/SET_LOADED', true);
+  }
+  next();
+});
+
+// router.beforeEach((to, from) => {
+//   store.dispatch('app/loaded', false);
+// });
+
+router.afterEach((to, from) => {
+  store.commit('app/SET_LOADED', true);
 });
 
 export default router;
