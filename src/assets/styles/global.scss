@@ -1,18 +1,18 @@
 @import '@/assets/styles/variables.scss';
 
-.wf-loading * {
-  opacity: 0;
-}
+// .wf-loading * {
+//   opacity: 0;
+// }
 
-.wf-loading {
-  height: 100%;
-  overflow: hidden;
-}
+// .wf-loading {
+//   height: 100%;
+//   overflow: hidden;
+// }
 
-.wf-active *,
-.wf-inactive * {
-  transition: opacity 1s ease-out;
-}
+// .wf-active *,
+// .wf-inactive * {
+//   transition: opacity 1s ease-out;
+// }
 
 #app {
   padding: 32px 0;

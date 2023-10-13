@@ -1,39 +1,21 @@
 <template>
   <header class="header">
     <div class="header__content">
-      <img
-        loading="eager"
-        alt="Devsigner text logo"
-        src="@/assets/header-logo.svg"
-        width="176"
-        height="117"
-        fetchpriority="high"
-      />
+      <img loading="eager" alt="Devsigner text logo" src="@/assets/header-logo.svg" width="176" height="117"
+        fetchpriority="high" />
       <p v-if="homepage.attributes" class="text-body">
         {{ homepage.attributes.hero.title }}
       </p>
     </div>
     <div>
-      <img
-        class="header-image header-image--left"
-        v-if="homepage.attributes"
-        fetchpriority="high"
+      <img class="header-image header-image--left" v-if="homepage.attributes" fetchpriority="high"
         :alt="homepage.attributes.imageleft.data.attributes.alternativeText"
-        :src="getImageUrl(homepage.attributes.imageleft.data.attributes.url)"
-        width="932"
-        height="640"
-      />
+        :src="getImageUrl(homepage.attributes.imageleft.data.attributes.url)" width="932" height="640" />
     </div>
     <div>
-      <img
-        class="header-image header-image--right"
-        v-if="homepage.attributes"
-        fetchpriority="high"
+      <img class="header-image header-image--right" v-if="homepage.attributes" fetchpriority="high"
         :alt="homepage.attributes.imageleft.data.attributes.alternativeText"
-        :src="getImageUrl(homepage.attributes.imageright.data.attributes.url)"
-        width="932"
-        height="640"
-      />
+        :src="getImageUrl(homepage.attributes.imageright.data.attributes.url)" width="932" height="640" />
     </div>
   </header>
 
@@ -42,13 +24,6 @@
   <section class="section section-portfolio">
     <div class="container">
       <div class="content">
-        <div v-if="homepage.attributes" class="section-header">
-          <h3>
-            <span class="section-title">{{
-              homepage.attributes.portfolio.title
-            }}</span>
-          </h3>
-        </div>
         <Portfolio />
       </div>
     </div>
@@ -80,22 +55,13 @@
           <h3>{{ homepage.attributes.github.title }}</h3>
           <p>{{ homepage.attributes.github.subtitle }}</p>
         </div>
-        <a
-          :href="homepage.attributes.github.buttonUrl"
-          target="_blank"
-          class="button button--primary button--medium"
-        >
+        <a :href="homepage.attributes.github.buttonUrl" target="_blank" class="button button--primary button--medium">
           {{ homepage.attributes.github.buttonText }}
         </a>
       </div>
-      <img
-        loading="lazy"
-        class="banner__image position-absolute"
-        src="@/assets/images/homepage/github-banner-section-image.avif"
-        alt="GitHub banner image"
-        width="1864"
-        height="300"
-      />
+      <img loading="lazy" class="banner__image position-absolute"
+        src="@/assets/images/homepage/github-banner-section-image.avif" alt="GitHub banner image" width="1864"
+        height="300" />
     </div>
   </section>
   <Skills />
@@ -104,7 +70,7 @@
 </template>
 
 <script>
-import { mapState, mapGetters, mapActions } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 import { defineAsyncComponent } from 'vue';
 import Articles from '@/containers/Articles.vue';
 import Skills from '@/containers/Skills.vue';

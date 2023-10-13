@@ -57,10 +57,10 @@ export default {
       .get(apiUrl)
       .then((response) => {
         this.article = response.data.data;
-        this.$gtm.trackView(
-          `Artículo - ${this.article.attributes.title}`,
-          'currentPath'
-        );
+        // this.$gtm.trackView(
+        //   `Artículo - ${this.article.attributes.title}`,
+        //   'currentPath'
+        // );
         this.parsedContent = this.md.render(this.article.attributes.content);
       })
       .catch((error) => {

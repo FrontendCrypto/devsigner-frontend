@@ -21,9 +21,9 @@ export default {
     Articles,
     Sidebar,
   },
-  mounted() {
-    this.$gtm.trackView(`Blog`, 'currentPath');
-  },
+  // mounted() {
+  //   this.$gtm.trackView(`Blog`, 'currentPath');
+  // },
 };
 </script>
 
