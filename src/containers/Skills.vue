@@ -34,8 +34,8 @@
         </div>
       </div>
       <div class="skills-column">
-        <div class="skills-title--icon" aria-label="Bridge Skills">
-          <unicon name="repeat" aria-hidden="true"></unicon>
+        <div class="skills-title--icon">
+          <unicon name="repeat"></unicon>
         </div>
         <div
           class="skills-column__content"

@@ -10,6 +10,7 @@
         tag="div"
         role="link"
         tabindex="0"
+        :name="`Lee el artículo completo: ${article.attributes.title}`"
       >
         <div v-if="index === 0" class="article-badge">
           <span>NUEVO</span>

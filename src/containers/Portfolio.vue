@@ -5,9 +5,9 @@
         <span class="section-title">PROYECTOS</span>
       </h3>
     </div>
-    <div class="cards-wrapper-3" role="list">
+    <div class="cards-wrapper-3">
       <router-link :to="{ name: 'portfolio', params: { id: portfolio.id } }" class="portfolio-item card"
-        v-for="(portfolio, index) in portfolio" :key="portfolio.id" role="listitem">
+        v-for="(portfolio, index) in portfolio" :key="portfolio.id">
         <div class="card-image-wrapper">
           <img loading="lazy" class="card-image" :src="getImageUrl(portfolio.attributes.image.data.attributes.url)"
             :alt="portfolio.attributes.image.data.attributes.alternativeText" />
