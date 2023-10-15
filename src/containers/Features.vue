@@ -54,7 +54,7 @@
               <div class="feature-content">
                 <h4 class="feature-title">{{ feature.attributes.title }}</h4>
                 <div class="expander-button">
-                  <button role="button" tabindex="0">
+                  <button role="button" tabindex="0" :name="!feature.expanded ? `Expandir ${feature.attributes.title}` : `Contraer ${feature.attributes.title}`">
                     <div :class="{ 'rotate-180': feature.expanded }">
                       <unicon
                         v-if="feature.expanded"
@@ -145,7 +145,7 @@
               <div class="feature-content">
                 <h4 class="feature-title">{{ feature.attributes.title }}</h4>
                 <div class="expander-button">
-                  <button role="button" tabindex="0" :name="feature.expanded ? 'Expandir información' : 'Contraer información'">
+                  <button role="button" tabindex="0" :name="!feature.expanded ? `Expandir ${feature.attributes.title}` : `Contraer ${feature.attributes.title}`">
                     <div :class="{ 'rotate-180': feature.expanded }">
                       <unicon
                         v-if="feature.expanded"
