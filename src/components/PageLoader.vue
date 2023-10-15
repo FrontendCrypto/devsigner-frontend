@@ -1,34 +1,61 @@
 <template>
   <transition name="fade">
-    <div v-show="!loaded && !fontsLoaded" id="page-loader">
-      <div class="fulfilling-square-spinner">
-        <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" fill="none">
-          <rect width="72" height="72" fill="#292929" rx="8" />
+    <div v-show="shouldShowLoader" id="page-loader">
+      <div class="loader"></div>
+      <div class="logo">
+        <svg width="56" height="56" fill="none">
+          <rect width="56" height="56" fill="#292929" rx="8" />
           <g filter="url(#a)">
-            <path fill="#AF232B"
-              d="M44.583 58.898c-2.241 0-4.307-.575-6.198-1.727a13.198 13.198 0 0 1-4.502-4.594c-1.11-1.932-1.666-4.05-1.666-6.352v-2.899c0-.226.103-.34.309-.34h7.092c.164 0 .247.114.247.34v2.899c0 1.377.462 2.57 1.387 3.577.925.986 2.035 1.48 3.33 1.48 1.316 0 2.437-.504 3.362-1.511.925-1.028 1.387-2.21 1.387-3.546 0-1.542-1.007-2.889-3.022-4.04-.328-.206-.76-.452-1.295-.74a50.446 50.446 0 0 0-1.85-1.048l-2.097-1.141c-.678-.39-1.336-.761-1.973-1.11-2.303-1.357-4.02-3.053-5.15-5.088-1.11-2.056-1.665-4.359-1.665-6.908 0-2.343.576-4.46 1.727-6.352 1.151-1.87 2.652-3.35 4.502-4.44a11.695 11.695 0 0 1 6.075-1.666c2.24 0 4.296.556 6.167 1.666a12.845 12.845 0 0 1 4.471 4.502c1.13 1.87 1.696 3.967 1.696 6.29v5.18c0 .165-.082.247-.247.247h-7.092c-.164 0-.247-.082-.247-.246l-.061-5.18c0-1.48-.463-2.683-1.388-3.609-.925-.925-2.025-1.387-3.3-1.387-1.294 0-2.405.493-3.33 1.48-.925.987-1.387 2.159-1.387 3.515 0 1.378.288 2.529.863 3.454.596.925 1.676 1.809 3.238 2.652.164.082.545.288 1.14.617.597.329 1.255.699 1.974 1.11.74.39 1.409.75 2.005 1.079.596.308.956.493 1.079.555 2.097 1.172 3.752 2.61 4.965 4.317 1.233 1.706 1.85 3.803 1.85 6.29 0 2.406-.555 4.564-1.665 6.476-1.131 1.912-2.632 3.423-4.502 4.533-1.871 1.11-3.947 1.665-6.23 1.665Z" />
-            <path fill="#F9E9CB"
-              d="m26.646 57.048-11.317.062c-.205 0-.308-.103-.308-.308l.123-43.387c0-.164.083-.246.247-.246l11.81-.062c2.344-.062 4.461.473 6.353 1.603a12.7 12.7 0 0 1 4.563 4.595c1.152 1.912 1.727 4.03 1.727 6.352V43.79c0 2.426-.586 4.646-1.758 6.66a13.729 13.729 0 0 1-4.748 4.78c-1.974 1.172-4.204 1.778-6.692 1.82Zm.555-36.386-4.41.061-.06 28.616h3.915c1.563 0 2.878-.544 3.947-1.634 1.07-1.09 1.604-2.395 1.604-3.916V25.595c0-1.336-.494-2.497-1.48-3.484-.987-1.007-2.159-1.49-3.516-1.45Z" />
+            <path
+              fill="#AF232B"
+              d="M34.147 44.4a8.379 8.379 0 0 1-4.439-1.237 9.453 9.453 0 0 1-3.224-3.29c-.796-1.384-1.193-2.901-1.193-4.55v-2.076c0-.162.073-.243.22-.243h5.08c.118 0 .177.081.177.243v2.076c0 .986.331 1.84.994 2.562.663.707 1.457 1.06 2.385 1.06.942 0 1.745-.36 2.407-1.082.663-.736.994-1.583.994-2.54 0-1.104-.721-2.069-2.164-2.893a17.177 17.177 0 0 0-.928-.53c-.368-.221-.81-.471-1.325-.751l-1.502-.817a78.18 78.18 0 0 0-1.413-.795c-1.65-.972-2.879-2.187-3.688-3.644-.795-1.473-1.193-3.122-1.193-4.948 0-1.678.412-3.195 1.237-4.55.824-1.339 1.9-2.4 3.224-3.18a8.376 8.376 0 0 1 4.351-1.192c1.605 0 3.077.398 4.417 1.193a9.2 9.2 0 0 1 3.203 3.224c.81 1.34 1.214 2.842 1.214 4.505v3.71c0 .119-.059.177-.176.177h-5.08c-.118 0-.177-.058-.177-.176l-.044-3.71c0-1.06-.331-1.922-.994-2.585-.662-.662-1.45-.993-2.363-.993-.928 0-1.722.353-2.385 1.06a3.556 3.556 0 0 0-.994 2.517c0 .987.206 1.811.619 2.474.426.663 1.2 1.296 2.318 1.9.118.058.39.206.818.441.427.236.898.5 1.413.795.53.28 1.009.538 1.436.773.427.221.684.354.773.398 1.501.839 2.687 1.87 3.555 3.092.884 1.222 1.325 2.723 1.325 4.505 0 1.723-.397 3.269-1.192 4.638a9.086 9.086 0 0 1-3.225 3.247c-1.34.795-2.827 1.192-4.46 1.192Z"
+            />
+            <path
+              fill="#F9E9CB"
+              d="m21.3 43.075-8.105.044c-.147 0-.22-.073-.22-.22l.088-31.075c0-.117.059-.176.177-.176l8.458-.044c1.679-.045 3.195.338 4.55 1.148a9.096 9.096 0 0 1 3.269 3.29c.824 1.37 1.236 2.886 1.236 4.55v12.986c0 1.738-.42 3.328-1.259 4.77a9.833 9.833 0 0 1-3.4 3.424c-1.414.84-3.012 1.274-4.793 1.303Zm.398-26.06-3.158.044-.044 20.495h2.805c1.119 0 2.061-.39 2.827-1.17.765-.781 1.148-1.716 1.148-2.806v-13.03c0-.957-.353-1.789-1.06-2.495-.707-.722-1.546-1.068-2.518-1.039Z"
+            />
           </g>
-          <path fill="#AF232B" fill-rule="evenodd"
-            d="m44.807 41.322.207.123c.535.288.966.535 1.295.74 2.015 1.151 3.022 2.498 3.022 4.04 0 1.336-.462 2.518-1.387 3.546-.925 1.007-2.046 1.51-3.361 1.51-1.295 0-2.406-.492-3.33-1.48-.926-1.007-1.388-2.199-1.388-3.576v-2.899c0-.226-.083-.34-.247-.34h-7.092c-.206 0-.309.114-.309.34v2.899c0 2.302.555 4.42 1.665 6.352a13.2 13.2 0 0 0 4.503 4.595c1.89 1.15 3.957 1.726 6.198 1.726 2.282 0 4.358-.555 6.229-1.665 1.87-1.11 3.371-2.62 4.502-4.533 1.11-1.912 1.665-4.07 1.665-6.475 0-1.85-.341-3.485-1.024-4.903H44.807Z"
-            clip-rule="evenodd" />
+          <path
+            fill="#AF232B"
+            fill-rule="evenodd"
+            d="m34.308 31.811.148.089c.383.206.692.383.928.53 1.443.824 2.164 1.789 2.164 2.893 0 .957-.33 1.804-.993 2.54-.663.721-1.465 1.082-2.408 1.082-.927 0-1.722-.353-2.385-1.06a3.661 3.661 0 0 1-.994-2.562v-2.076c0-.162-.059-.243-.177-.243h-5.08c-.146 0-.22.081-.22.243v2.076c0 1.65.398 3.166 1.193 4.55a9.453 9.453 0 0 0 3.224 3.29 8.379 8.379 0 0 0 4.44 1.237c1.634 0 3.12-.397 4.46-1.192a9.086 9.086 0 0 0 3.225-3.247c.795-1.37 1.193-2.915 1.193-4.638 0-1.325-.245-2.496-.734-3.512h-7.984Z"
+            clip-rule="evenodd"
+          />
           <defs>
-            <filter id="a" width="49.958" height="53.796" x="11.021" y="13.102" color-interpolation-filters="sRGB"
-              filterUnits="userSpaceOnUse">
+            <filter
+              id="a"
+              width="38.051"
+              height="40.8"
+              x="8.975"
+              y="11.6"
+              color-interpolation-filters="sRGB"
+              filterUnits="userSpaceOnUse"
+            >
               <feFlood flood-opacity="0" result="BackgroundImageFix" />
-              <feColorMatrix in="SourceAlpha" result="hardAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
+              <feColorMatrix
+                in="SourceAlpha"
+                result="hardAlpha"
+                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+              />
               <feOffset dy="4" />
               <feGaussianBlur stdDeviation="2" />
               <feComposite in2="hardAlpha" operator="out" />
-              <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
-              <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_385_1448" />
-              <feBlend in="SourceGraphic" in2="effect1_dropShadow_385_1448" result="shape" />
+              <feColorMatrix
+                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+              />
+              <feBlend
+                in2="BackgroundImageFix"
+                result="effect1_dropShadow_385_1448"
+              />
+              <feBlend
+                in="SourceGraphic"
+                in2="effect1_dropShadow_385_1448"
+                result="shape"
+              />
             </filter>
           </defs>
         </svg>
       </div>
-      <span>Cargando</span>
     </div>
   </transition>
 </template>
@@ -38,8 +65,12 @@ import { mapState } from 'vuex';
 
 export default {
   name: 'PageLoader',
+  data() {},
   computed: {
     ...mapState('app', ['loaded', 'fontsLoaded']),
+    shouldShowLoader() {
+      return !(this.loaded && this.fontsLoaded);
+    },
   },
   watch: {
     loaded(newVal) {
@@ -86,38 +117,50 @@ span {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.fulfilling-square-spinner {
-  animation: fulfilling-square-spinner-animation 1s infinite ease;
+.logo {
+  width: 56px;
+  height: 56px;
+  position: absolute;
+  animation: bounce 1s infinite ease-in-out;
 }
 
-// .fulfilling-square-spinner .spinner-inner {
-//   vertical-align: top;
-//   display: inline-block;
-//   background-color: $primary;
-//   width: 100%;
-//   opacity: 1;
-//   animation: fulfilling-square-spinner-inner-animation 4s infinite ease-in;
-// }
+.loader {
+  display: inline-block;
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  box-shadow: 4px -40px 60px 5px $primary inset;
+  background: linear-gradient(to right, rgba($primary, 0.5), transparent 50%);
+  animation: spin 1s infinite linear;
+  &:before {
+    display: block;
+    content: '';
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120px;
+    height: 120px;
+    background: $background;
+    border-radius: 50%;
+  }
+}
 
-@keyframes fulfilling-square-spinner-animation {
-  0% {
+@keyframes spin {
+  from {
     transform: rotate(0deg);
   }
-
-  25% {
-    transform: rotate(90deg);
-  }
-
-  50% {
-    transform: rotate(180deg);
-  }
-
-  75% {
-    transform: rotate(270deg);
-  }
-
-  100% {
+  to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes bounce {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.02);
   }
 }
 </style>
