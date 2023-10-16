@@ -10,7 +10,7 @@
         tag="div"
         role="link"
         tabindex="0"
-        :name="`Lee el artículo completo: ${article.attributes.title}`"
+        :name="`Lee el artículo completo: ${item.attributes.title}`"
       >
         <div v-if="index === 0" class="article-badge">
           <span>NUEVO</span>
@@ -155,7 +155,7 @@ export default {
   color: $contentOnPrimary;
   text-decoration: none;
   font-size: 32px;
-  font-family: Koulen, Arial, sans-serif;
+  font-family: 'Space Mono', monospace;
   font-weight: 400;
   line-height: 1;
   display: flex;
