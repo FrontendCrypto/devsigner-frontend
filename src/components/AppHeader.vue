@@ -34,7 +34,8 @@ nav {
   text-decoration: none;
 }
 .header-title {
-  font-family: Koulen, Arial, sans-serif;
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
   line-height: 1;
   font-size: 30px;
   color: $contentOnSurface;

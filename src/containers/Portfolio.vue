@@ -1,6 +1,7 @@
 <template>
   <div class="portfolio" role="region" aria-labelledby="portfolio-section-heading">
-    <div class="section-header">
+    <div class="content">
+      <div class="section-header">
       <h3 id="portfolio-section-heading">
         <span class="section-title">PROYECTOS</span>
       </h3>
@@ -17,6 +18,7 @@
           <p>{{ portfolio.attributes.description }}</p>
         </div>
       </router-link>
+    </div>
     </div>
   </div>
 </template>

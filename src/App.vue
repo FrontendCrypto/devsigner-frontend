@@ -20,7 +20,7 @@ export default {
   mounted() {
     WebFontLoader.load({
       google: {
-        families: ['Inter:400,600', 'Koulen:400'],
+        families: ['Inter:400,600', 'SpaceMono: 400,700'],
       },
       active: () => {
         this.$store.commit('app/SET_FONTS_LOADED', true);
