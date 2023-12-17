@@ -2,12 +2,12 @@
   <section
     class="section section-features section-features--develop"
     role="region"
-    aria-labelledby="section-heading"
+    aria-labelledby="gallery-section-heading"
   >
     <div class="container">
       <div class="content">
         <div class="section-header">
-          <h3 id="section-heading">
+          <h3 id="gallery-section-heading">
             <span class="section-title">MACHINE LEARNING:</span>
             <span class="section-subtitle">HERRAMIENTA Y RETO</span>
           </h3>
@@ -75,13 +75,16 @@
                     "
                     width="256"
                     height="256"
-                    aria-labelledby="gallery-item-title"
+                    :aria-labelledby="`gallery-item-title-${item.id}`"
                   />
                   <div class="gallery-item-overlay">
-                    <h3 id="gallery-item-title">{{ item.attributes.title }}</h3>
+                    <h3 :id="`gallery-item-title-${item.id}`">
+                      {{ item.attributes.title }}
+                    </h3>
                     <router-link
                       class="gallery-item-link"
                       :to="{ name: 'gallery', params: { id: item.id } }"
+                      :name="`Ir a página de ${item.attributes.title}`"
                       tabindex="0"
                       role="link"
                     />

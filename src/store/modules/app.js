@@ -5,9 +5,7 @@ const state = {
 
 const mutations = {
   SET_LOADED(state, loaded) {
-    setTimeout(() => {
-      state.loaded = loaded;
-    }, 1500);
+    state.loaded = loaded;
   },
   SET_FONTS_LOADED(state, loaded) {
     state.fontsLoaded = loaded;

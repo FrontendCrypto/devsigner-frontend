@@ -42,7 +42,9 @@
             </p>
           </div>
           <div class="features">
+            <div v-if="loading" v-for="feature in 9" class="feature"></div>
             <div
+              v-else
               v-for="(feature, index) in filteredDesignFeatures"
               :key="index"
               :class="['feature', feature.expanded ? 'active' : '']"
@@ -54,7 +56,15 @@
               <div class="feature-content">
                 <h4 class="feature-title">{{ feature.attributes.title }}</h4>
                 <div class="expander-button">
-                  <button role="button" tabindex="0">
+                  <button
+                    role="button"
+                    tabindex="0"
+                    :name="
+                      !feature.expanded
+                        ? `Expandir ${feature.attributes.title}`
+                        : `Contraer ${feature.attributes.title}`
+                    "
+                  >
                     <div :class="{ 'rotate-180': feature.expanded }">
                       <unicon
                         v-if="feature.expanded"
@@ -136,7 +146,9 @@
           </div>
 
           <div class="features">
+            <div v-if="loading" v-for="feature in 9" class="feature"></div>
             <div
+              v-else
               v-for="(feature, index) in filteredDevelopFeatures"
               :key="index"
               :class="['feature', feature.expanded ? 'active' : '']"
@@ -145,7 +157,15 @@
               <div class="feature-content">
                 <h4 class="feature-title">{{ feature.attributes.title }}</h4>
                 <div class="expander-button">
-                  <button role="button" tabindex="0">
+                  <button
+                    role="button"
+                    tabindex="0"
+                    :name="
+                      !feature.expanded
+                        ? `Expandir ${feature.attributes.title}`
+                        : `Contraer ${feature.attributes.title}`
+                    "
+                  >
                     <div :class="{ 'rotate-180': feature.expanded }">
                       <unicon
                         v-if="feature.expanded"
@@ -238,6 +258,67 @@ export default {
 
       @media (width >=1024px) {
         grid-template-columns: repeat(3, 1fr);
+      }
+
+      .feature {
+        padding: 16px;
+        border-radius: 8px;
+        position: relative;
+        cursor: pointer;
+        height: min-content;
+        transition: 0.3s ease-in-out;
+        will-change: height;
+        min-height: 80px;
+        button {
+          width: 48px;
+          height: 48px;
+          grid-column: 2;
+          grid-row: 1;
+          background-color: transparent;
+          border: 0;
+
+          div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: rotate(0deg);
+            transition: transform 0.2s ease;
+          }
+        }
+
+        .feature-content {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 8px;
+          width: 100%;
+        }
+
+        .rotate-180 {
+          transform: rotate(180deg);
+        }
+
+        .feature-description {
+          height: 0;
+          will-change: height, opacity;
+          padding: 0 16px 16px 16px;
+          transition: 0.2s ease;
+          overflow: hidden;
+          position: absolute;
+          border-radius: 0 0 8px 8px;
+          left: 0;
+          right: 0;
+          z-index: 1;
+          opacity: 0;
+        }
+
+        &.active {
+          .feature-description {
+            transition: 0.2s ease;
+            height: min-content;
+            opacity: 1;
+          }
+        }
       }
     }
 
@@ -338,67 +419,6 @@ export default {
     .feature-title,
     .feature-description {
       color: $contentOnTertiary;
-    }
-  }
-
-  .feature {
-    padding: 16px;
-    border-radius: 8px;
-    position: relative;
-    cursor: pointer;
-    height: min-content;
-    transition: 0.3s ease-in-out;
-    will-change: height;
-
-    button {
-      width: 48px;
-      height: 48px;
-      grid-column: 2;
-      grid-row: 1;
-      background-color: transparent;
-      border: 0;
-
-      div {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transform: rotate(0deg);
-        transition: transform 0.2s ease;
-      }
-    }
-
-    .feature-content {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-      width: 100%;
-    }
-
-    .rotate-180 {
-      transform: rotate(180deg);
-    }
-
-    .feature-description {
-      height: 0;
-      will-change: height, opacity;
-      padding: 0 16px 16px 16px;
-      transition: 0.2s ease;
-      overflow: hidden;
-      position: absolute;
-      border-radius: 0 0 8px 8px;
-      left: 0;
-      right: 0;
-      z-index: 1;
-      opacity: 0;
-    }
-
-    &.active {
-      .feature-description {
-        transition: 0.2s ease;
-        height: min-content;
-        opacity: 1;
-      }
     }
   }
 }

@@ -12,24 +12,18 @@ import WebFontLoader from 'webfontloader';
 export default {
   components: {
     AppHeader,
-    PageLoader
+    PageLoader,
   },
   created() {
     document.body.classList.add('app-loading');
   },
   mounted() {
-    // Show loader
-    // No scroll
-    // Detect fonts loaded
-    // Detect app mounted
-    // When both true then hide loader and scroll
     WebFontLoader.load({
       google: {
-        families: ['Inter:400,600', 'Koulen:400'],
+        families: ['Inter:400,600', 'SpaceMono: 400,700'],
       },
       active: () => {
-        // Font loading is complete
-        this.$store.commit('app/SET_FONTS_LOADED', true); // Adjust the mutation if needed
+        this.$store.commit('app/SET_FONTS_LOADED', true);
       },
     });
   },

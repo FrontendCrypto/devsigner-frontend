@@ -1,13 +1,14 @@
 <template>
   <div class="portfolio" role="region" aria-labelledby="portfolio-section-heading">
-    <div class="section-header">
+    <div class="content">
+      <div class="section-header">
       <h3 id="portfolio-section-heading">
         <span class="section-title">PROYECTOS</span>
       </h3>
     </div>
-    <div class="cards-wrapper-3" role="list">
+    <div class="cards-wrapper-3">
       <router-link :to="{ name: 'portfolio', params: { id: portfolio.id } }" class="portfolio-item card"
-        v-for="(portfolio, index) in portfolio" :key="portfolio.id" role="listitem">
+        v-for="(portfolio, index) in portfolio" :key="portfolio.id">
         <div class="card-image-wrapper">
           <img loading="lazy" class="card-image" :src="getImageUrl(portfolio.attributes.image.data.attributes.url)"
             :alt="portfolio.attributes.image.data.attributes.alternativeText" />
@@ -17,6 +18,7 @@
           <p>{{ portfolio.attributes.description }}</p>
         </div>
       </router-link>
+    </div>
     </div>
   </div>
 </template>
